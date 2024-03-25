@@ -9,8 +9,8 @@ namespace MyGarden.Data.Data.Models
     public class PlantAndStyle
     {
         public Guid PlantId { get; set; }
-        public Plant Plant { get; set; }
+        public Plant? Plant { get; set; }
         public Guid StyleId { get; set; }
-        public GardenStyle GardenStyle { get;set; }
+        public GardenStyle? GardenStyle { get;set; }
     }
 }

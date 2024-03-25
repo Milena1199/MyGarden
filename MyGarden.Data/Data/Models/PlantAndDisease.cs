@@ -9,9 +9,9 @@ namespace MyGarden.Data.Data.Models
     public class PlantAndDisease
     {
         public Guid PlantId { get; set; }
-        public Plant Plant { get; set; }
+        public Plant? Plant { get; set; }
 
         public Guid DiseaseId { get; set; }
-        public Disease Disease { get; set; }
+        public Disease? Disease { get; set; }
     }
 }

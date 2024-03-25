@@ -8,16 +8,20 @@ using System.Threading.Tasks;
 
 namespace MyGarden.Data.Data.Models
 {
-    public class GardeningZone//this is the users garden with all the special things for it
+    public class User
     {
         [Key]
         public Guid Id { get; set; }
 
-        public string ClimateZone { get; set; }
+        [Required]
+        public string? Username { get; set; }
 
-        public int HardinessZone { get; set; }
+        [Required]
+        public string? Password { get; set; }
 
-        public string SoilType { get; set; } 
+        [Required]
+        public string? Name { get; set; }
 
+        public ICollection<UsersGarden>? UsersGardens { get; set; }
     }
 }

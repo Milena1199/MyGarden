@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden", "MyGarden\MyGarden.csproj", "{3F7868BD-2695-44BE-83AE-251374AEDBAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarden.Data", "MyGarden.Data\MyGarden.Data.csproj", "{BD71190E-8410-43AE-B0E0-E30EE185CB19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.Data", "MyGarden.Data\MyGarden.Data.csproj", "{BD71190E-8410-43AE-B0E0-E30EE185CB19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarden.Core", "MyGarden.Core\MyGarden.Core.csproj", "{F81D4109-2E17-4BE4-A101-55953F92CE21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.Core", "MyGarden.Core\MyGarden.Core.csproj", "{F81D4109-2E17-4BE4-A101-55953F92CE21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_Garden", "My_Garden\My_Garden.csproj", "{D2AE6060-29AB-4F6E-BC1D-951D68E0BBCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F7868BD-2695-44BE-83AE-251374AEDBAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F7868BD-2695-44BE-83AE-251374AEDBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F7868BD-2695-44BE-83AE-251374AEDBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F7868BD-2695-44BE-83AE-251374AEDBAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD71190E-8410-43AE-B0E0-E30EE185CB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD71190E-8410-43AE-B0E0-E30EE185CB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD71190E-8410-43AE-B0E0-E30EE185CB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{F81D4109-2E17-4BE4-A101-55953F92CE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F81D4109-2E17-4BE4-A101-55953F92CE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F81D4109-2E17-4BE4-A101-55953F92CE21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2AE6060-29AB-4F6E-BC1D-951D68E0BBCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2AE6060-29AB-4F6E-BC1D-951D68E0BBCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2AE6060-29AB-4F6E-BC1D-951D68E0BBCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2AE6060-29AB-4F6E-BC1D-951D68E0BBCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
