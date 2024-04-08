@@ -18,6 +18,6 @@ namespace MyGarden.Data.Data.Models
         public string? Description { get;set; }
         public string? Image { get; set; }
 
-        public ICollection<PlantAndStyle>PlantsAndStyles { get; set; }
+        public ICollection<PlantAndStyle>?PlantsAndStyles { get; set; }
     }
 }
