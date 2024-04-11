@@ -22,6 +22,6 @@ namespace MyGarden.Data.Data.Models
         [Required]
         public string? Name { get; set; }
 
-        public ICollection<UsersGarden>? UsersGardens { get; set; }
+        public ICollection<GardeningZone>? GardeningZones { get; set; }
     }
 }

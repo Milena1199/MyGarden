@@ -38,6 +38,7 @@ namespace My_Garden
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //stop the fucking timer
             string randomImage = images[random.Next(0, images.Length)];
             this.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(randomImage);
             this.BackgroundImageLayout = ImageLayout.Stretch;

@@ -102,7 +102,7 @@
             textBox2.BackColor = Color.Black;
             textBox2.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(722, 210);
+            textBox2.Location = new Point(722, 245);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(199, 39);
             textBox2.TabIndex = 5;
@@ -113,7 +113,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(545, 222);
+            label2.Location = new Point(545, 245);
             label2.Name = "label2";
             label2.Size = new Size(166, 32);
             label2.TabIndex = 4;
@@ -124,7 +124,7 @@
             textBox3.BackColor = Color.Black;
             textBox3.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             textBox3.ForeColor = Color.White;
-            textBox3.Location = new Point(722, 286);
+            textBox3.Location = new Point(722, 325);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(199, 39);
             textBox3.TabIndex = 7;
@@ -135,7 +135,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(549, 261);
+            label3.Location = new Point(549, 309);
             label3.Name = "label3";
             label3.Size = new Size(166, 64);
             label3.TabIndex = 6;
@@ -161,7 +161,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(549, 349);
+            label4.Location = new Point(549, 405);
             label4.Name = "label4";
             label4.Size = new Size(104, 32);
             label4.TabIndex = 9;
@@ -172,9 +172,9 @@
             textBox4.BackColor = Color.Black;
             textBox4.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             textBox4.ForeColor = Color.White;
-            textBox4.Location = new Point(722, 346);
+            textBox4.Location = new Point(722, 402);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 39);
+            textBox4.Size = new Size(199, 39);
             textBox4.TabIndex = 11;
             // 
             // label5
@@ -232,7 +232,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            BackgroundImage = Properties.Resources.redLily;
+            BackgroundImage = My_Garden.Properties.Resources.redLily;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1066, 676);
             Controls.Add(pictureBox2);

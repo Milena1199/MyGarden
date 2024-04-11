@@ -50,7 +50,7 @@ namespace My_Garden
                         Name = textBox4.Text
                     };
                     controller.UserRegister(userViewModel);
-                    if (controller.IsWorker(Name) != Guid.Empty)
+                    if (controller.IsUser(userViewModel.Username) != Guid.Empty)
                     {
                         MessageBox.Show("Registration successful.", "Register");
                         Form1 form = new Form1();
@@ -69,7 +69,7 @@ namespace My_Garden
                         Name = textBox4.Text
                     };
                     controller.WorkerRegister(workerViewModel);
-                    if (controller.IsWorker(Name) != Guid.Empty) MessageBox.Show("Registration successful.", "Register");
+                    if (controller.IsWorker(workerViewModel.Username) != Guid.Empty) MessageBox.Show("Registration successful.", "Register");
                     else
                     {
                         MessageBox.Show("Something went wrong with the registration", "Registration");

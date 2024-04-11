@@ -42,7 +42,7 @@ namespace My_Garden
 
         private void button1_Click(object sender, EventArgs e)
         {
-            My_Garden my_garden = new My_Garden();
+            My_GardenForm my_garden = new My_GardenForm();
             Hide();
             my_garden.ShowDialog();
             Close();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyGarden.Data.Data.Models
 {
-    public class UsersGarden//this is the users garden with all the special things for it
+    public class GardeningZone//this is the users garden with all the special things for it
     {
         [Key]
         public Guid Id { get; set; }
@@ -20,7 +20,7 @@ namespace MyGarden.Data.Data.Models
         public string? SoilType { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid GuidId { get; set; }
+        public Guid UserId { get; set; }
         public User? User { get; set; }
 
         public ICollection<Plant_Garden>? Plants_Gardens { get; set; }

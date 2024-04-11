@@ -12,7 +12,7 @@ namespace MyGarden.Data.Data
     {
         public MyGardenDb() : base() { }
         public DbSet<Disease>?Diseases { get; set; }
-        public DbSet<UsersGarden>? GardeningZones { get; set; }
+        public DbSet<GardeningZone>? GardeningZones { get; set; }
         public DbSet<GardenStyle>?GardenStyles { get; set; }
         public DbSet<Pest>? Pests { get; set; }
         public DbSet<PestAndPlant>? PestsAndPlants { get; set; }

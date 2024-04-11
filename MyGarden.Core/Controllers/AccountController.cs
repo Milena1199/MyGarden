@@ -40,7 +40,7 @@ namespace MyGarden.Core.Controllers
             myGardenDb.SaveChanges();
         }
 
-        public Guid LogInUser (LogInViewModel logInViewModel)
+        public Guid LogInUser(LogInViewModel logInViewModel)
         {
             Guid Id = Guid.Empty;
 
@@ -52,7 +52,7 @@ namespace MyGarden.Core.Controllers
             return Id;
         }
 
-        public Guid LogInWorker (LogInViewModel logInViewModel)
+        public Guid LogInWorker(LogInViewModel logInViewModel)
         {
             Guid Id = Guid.Empty;
             Worker worker = myGardenDb.Workers.FirstOrDefault(w => w.Id == logInViewModel.Id);
@@ -63,22 +63,22 @@ namespace MyGarden.Core.Controllers
             return Id;
         }
 
-        public Guid IsUser (string  username)
+        public Guid IsUser(string username)
         {
             Guid id = Guid.Empty;
-            User user = myGardenDb.Users.FirstOrDefault(u=>u.Username==username);
+            User user = myGardenDb.Users.FirstOrDefault(u => u.Username == username);
             if (user != null) id = user.Id;
             return id;
         }
-        public Guid IsWorker (string username)
+        public Guid IsWorker(string username)
         {
             Guid id = Guid.Empty;
             Worker worker = myGardenDb.Workers.FirstOrDefault(w => w.Username == username);
-            if(worker != null) id = worker.Id;
+            if (worker != null) id = worker.Id;
             return id;
         }
 
-        public string GetUserName (Guid id)
+        public string GetUserName(Guid id)
         {
             User user = myGardenDb.Users.FirstOrDefault(u => u.Id == id);
             return user.Name;
@@ -89,7 +89,7 @@ namespace MyGarden.Core.Controllers
             return user.Username;
         }
 
-        public string GetWorkerName (Guid id)
+        public string GetWorkerName(Guid id)
         {
             Worker worker = myGardenDb.Workers.FirstOrDefault(w => w.Id == id);
             return worker.Name;
@@ -100,18 +100,18 @@ namespace MyGarden.Core.Controllers
             return worker.Username;
         }
 
-        public void UpdateUser (UserUpdateViewModel userUpdateViewModel)
+        public void UpdateUser(UserUpdateViewModel userUpdateViewModel)
         {
             User user = myGardenDb.Users.Find(userUpdateViewModel.Id);
-            if (userUpdateViewModel.Username!="")
+            if (userUpdateViewModel.Username != "")
             {
                 user.Username = userUpdateViewModel.Username;
             }
-            if (userUpdateViewModel.Name!="")
+            if (userUpdateViewModel.Name != "")
             {
                 user.Name = userUpdateViewModel.Name;
             }
-            if(userUpdateViewModel.Password !="")
+            if (userUpdateViewModel.Password != "")
             {
                 user.Password = userUpdateViewModel.Password;
             }
