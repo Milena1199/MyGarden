@@ -96,25 +96,31 @@ namespace My_Garden
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
+
+            button1.Visible = false;
+            button2.Visible = true;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = false;
+
             comboBox1.Visible = false;
             comboBox2.Visible = true;
             comboBox3.Visible = true;
             comboBox4.Visible = true;
+
             label2.Visible = true;
             label3.Visible = true;
             label4.Visible = true;
             label5.Visible = false;
             label6.Visible = false;
             label7.Visible = false;
+
             pictureBox3.Visible = false;
             pictureBox4.Visible = true;
             pictureBox5.Visible = true;
             pictureBox6.Visible = true;
             pictureBox7.Visible = true;
-            button1.Visible = false;
-            button2.Visible = true;
-            button3.Visible = false;
-            button4.Visible = false;
+
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -124,20 +130,7 @@ namespace My_Garden
             if (comboBox1.Items.Count != 0)
             {
                 comboBox1.SelectedIndex = -1;
-                comboBox1.Visible = true;
-                comboBox2.Visible = false;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                button1.Visible = true;
-                button2.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
+                comboBox1_SelectedIndexChanged(sender, e);
             }
             else
             {
@@ -183,24 +176,9 @@ namespace My_Garden
                     comboBox1.Items.Add(gardenName);
                 }
 
-                comboBox1.Visible = true;
-                comboBox1.SelectedIndex = -1;
-                comboBox2.Visible = false;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
-                label5.Visible = false;
-                label6.Visible = false;
-                label7.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                button1.Visible = true;
-                button2.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
+                if (comboBox1.SelectedIndex == -1) comboBox1_SelectedIndexChanged(sender, e);
+                else comboBox1.SelectedIndex = -1;
+
             }
         }
 
@@ -233,10 +211,12 @@ namespace My_Garden
                 button4.Visible = false;
                 button5.Visible = false;
 
+                comboBox1.Visible = true;
                 comboBox2.Visible = false;
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
 
+                label1.Visible = false;
                 label2.Visible = false;
                 label3.Visible = false;
                 label4.Visible = false;
@@ -291,41 +271,50 @@ namespace My_Garden
 
         private void button4_Click(object sender, EventArgs e)
         {
-            controller.DeleteGarden(gardeningZone.Id);
-            comboBox1.SelectedIndex = -1;
-            gardens = controller.AllZones(userId);
-            if (gardens.Count != 0)
+            if(MessageBox.Show("Are you sure you want to delete this garden?", "Delete gardening zone", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                comboBox1.Items.Clear();
-                for (int i = 1; i <= gardens.Count; i++)
+                controller.DeleteGarden(gardeningZone.Id);
+                comboBox1.SelectedIndex = -1;
+                gardens = controller.AllZones(userId);
+                if (gardens.Count != 0)
                 {
-                    string gardenName = $"Garden {i}";
-                    comboBox1.Items.Add(gardenName);
+                    comboBox1.Items.Clear();
+                    for (int i = 1; i <= gardens.Count; i++)
+                    {
+                        string gardenName = $"Garden {i}";
+                        comboBox1.Items.Add(gardenName);
+                    }
+                    comboBox1.Visible = true;
+                    label7.Visible = false;
                 }
-                comboBox1.Visible = true;
-                label7.Visible = false;
-            } 
-            else
-            {
-                comboBox1.Visible = false;
-                label7.Visible = true;
+                else
+                {
+                    comboBox1.Visible = false;
+                    label7.Visible = true;
+                }
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                pictureBox4.Visible = false;
+                pictureBox5.Visible = false;
+                pictureBox6.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
             }
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            button1.Visible = true;
-            button2.Visible = false;
-            button3.Visible = false;
-            button4.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = true;
+
             comboBox2.SelectedIndex = comboBox2.FindStringExact(climate);
             comboBox3.SelectedIndex = comboBox3.FindStringExact(hardiness.ToString());
             comboBox4.SelectedIndex = comboBox4.FindStringExact(soil);
@@ -333,23 +322,20 @@ namespace My_Garden
             comboBox2.Visible = true;
             comboBox3.Visible = true;
             comboBox4.Visible = true;
+
             label2.Visible = true;
             label3.Visible = true;
             label4.Visible = true;
             label5.Visible = false;
             label6.Visible = false;
             label7.Visible = false;
+
+
             pictureBox3.Visible = false;
             pictureBox4.Visible = true;
             pictureBox5.Visible = true;
             pictureBox6.Visible = true;
             pictureBox8.Visible = true;
-            button1.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
-            button4.Visible = false;
-            button5.Visible = true;
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -367,21 +353,34 @@ namespace My_Garden
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = -1;
+            button1.Visible = true;
+            button2.Visible = false;
+            button3.Visible = true;
+            button4.Visible = true;
+            button5.Visible = false;
+
             comboBox1.Visible = true;
             comboBox2.Visible = false;
             comboBox3.Visible = false;
             comboBox4.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
+
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = false;
+
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
             pictureBox3.Visible = true;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
+            pictureBox4.Visible = true;
+            pictureBox5.Visible = true;
+            pictureBox6.Visible = true;
+            pictureBox7.Visible = false;
             pictureBox8.Visible = false;
-            button5.Visible = false;
-            button2.Visible = true;
 
         }
     }

@@ -362,7 +362,7 @@
             // button5
             // 
             button5.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(587, 448);
+            button5.Location = new Point(587, 530);
             button5.Name = "button5";
             button5.Size = new Size(210, 76);
             button5.TabIndex = 41;

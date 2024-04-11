@@ -55,8 +55,9 @@ namespace My_Garden
                         MessageBox.Show("Registration successful.", "Register");
                         Form1 form = new Form1();
                         SignUpForm signup = new SignUpForm();
+                        Hide();
                         form.Show();
-                        signup.Hide();
+                        Close();
                     }
                     else MessageBox.Show("Something went wrong with the registration", "Register");
                 }
