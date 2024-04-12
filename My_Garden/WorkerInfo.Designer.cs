@@ -132,7 +132,7 @@
             button1.BackColor = Color.FromArgb(196, 189, 168);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Fax", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(385, 541);
+            button1.Location = new Point(454, 541);
             button1.Name = "button1";
             button1.Size = new Size(153, 48);
             button1.TabIndex = 47;

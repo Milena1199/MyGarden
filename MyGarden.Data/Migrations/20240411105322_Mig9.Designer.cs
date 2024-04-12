@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyGarden.Data.Data;
 
@@ -11,9 +12,10 @@ using MyGarden.Data.Data;
 namespace MyGarden.Data.Migrations
 {
     [DbContext(typeof(MyGardenDb))]
-    partial class MyGardenDbModelSnapshot : ModelSnapshot
+    [Migration("20240411105322_Mig9")]
+    partial class Mig9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,7 +262,7 @@ namespace MyGarden.Data.Migrations
                     b.ToTable("PlantsAndStyles");
                 });
 
-            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantType", b =>
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Type", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -275,7 +277,7 @@ namespace MyGarden.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlantTypes");
+                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.User", b =>
@@ -366,7 +368,7 @@ namespace MyGarden.Data.Migrations
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.Plant", b =>
                 {
-                    b.HasOne("MyGarden.Data.Data.Models.PlantType", "Type")
+                    b.HasOne("MyGarden.Data.Data.Models.Type", "Type")
                         .WithMany("Plants")
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -463,7 +465,7 @@ namespace MyGarden.Data.Migrations
                     b.Navigation("Plants_Gardens");
                 });
 
-            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantType", b =>
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Type", b =>
                 {
                     b.Navigation("Plants");
                 });

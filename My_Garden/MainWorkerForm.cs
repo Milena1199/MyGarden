@@ -43,5 +43,13 @@ namespace My_Garden
             workerInfo.ShowDialog();
             Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PlantWorkshop plantWorkshop = new PlantWorkshop();
+            Hide();
+            plantWorkshop.ShowDialog();
+            Close();
+        }
     }
 }

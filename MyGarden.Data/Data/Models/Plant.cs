@@ -22,7 +22,7 @@ namespace MyGarden.Data.Data.Models
         [Required]
         [ForeignKey(nameof(Type))]
         public Guid TypeId { get; set; }
-        public Type? Type { get; set; }
+        public PlantType? Type { get; set; }
 
         [Required]
         public string? HowToPlant { get; set; }// when to plant, depth, spacing
@@ -40,6 +40,7 @@ namespace MyGarden.Data.Data.Models
         public string? Maintance { get; set; }// PruningNeeds(podrqzvane), Fertilization(torene),special care, sun exposure, watering frequency
         [Required]
         public string? LenghtOfLife { get; set; }
+        public decimal? Price { get; set; }
         public string? MoreInfo { get; set; }//history, native, habitat and everything else
 
         public ICollection<PlantAndStyle>? PlantsAndStyles { get; set;}

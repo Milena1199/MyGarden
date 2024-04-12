@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyGarden.Data.Data.Models
 {
-    public class Type
+    public class PlantType
     {
         [Key]
         public Guid Id { get; set; }

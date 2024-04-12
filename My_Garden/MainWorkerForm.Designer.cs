@@ -32,6 +32,7 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,9 +53,9 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(774, 12);
+            pictureBox2.Location = new Point(822, 12);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(93, 89);
+            pictureBox2.Size = new Size(66, 64);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 21;
             pictureBox2.TabStop = false;
@@ -65,13 +66,27 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(897, 12);
+            pictureBox1.Location = new Point(915, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(93, 89);
+            pictureBox1.Size = new Size(72, 64);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 20;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(53, 125);
+            button1.Name = "button1";
+            button1.Size = new Size(187, 82);
+            button1.TabIndex = 23;
+            button1.Text = "Plant workshop";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // MainWorkerForm
             // 
@@ -80,6 +95,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(999, 587);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -99,5 +115,6 @@
         private Label label1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }
