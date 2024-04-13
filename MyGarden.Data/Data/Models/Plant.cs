@@ -19,10 +19,8 @@ namespace MyGarden.Data.Data.Models
         public string? Name { get; set; }
 
         public ICollection<Image>? Images { get; set; }
-        [Required]
-        [ForeignKey(nameof(Type))]
-        public Guid TypeId { get; set; }
-        public PlantType? Type { get; set; }
+
+        ICollection<Plant_Category>?Plant_Categories { get; set; }
 
         [Required]
         public string? HowToPlant { get; set; }// when to plant, depth, spacing

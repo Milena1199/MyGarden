@@ -11,7 +11,7 @@ namespace MyGarden.Data.Data.Models
         public Guid PlantId { get; set; }
         public Plant? Plant { get; set; }
 
-        public Guid UsersGardenId {  get; set; }
-        public GardeningZone? UsersGarden { get; set; }
+        public Guid GardeningZoneId {  get; set; }
+        public GardeningZone? GardeningZone { get; set; }
     }
 }

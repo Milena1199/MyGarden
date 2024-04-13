@@ -21,9 +21,9 @@ namespace MyGarden.Core.Controllers
         {
             myGardenDb = new MyGardenDb ();
         }
-        //public List<Type> AllPlantTypes ()
-        //{
-        //    return myGardenDb.Types.ToList();
-        //}
+        public List<Category> AllPlantTypes ()
+        {
+            return myGardenDb.PlantTypes.ToList ();
+        }
     }
 }

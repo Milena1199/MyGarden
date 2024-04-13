@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "AddOrUpdateTypeForm";
+            SuspendLayout();
+            // 
+            // AddOrUpdateTypeForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(800, 450);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "AddOrUpdateTypeForm";
+            Text = "AddOrUpdateTypeForm";
+            ResumeLayout(false);
         }
 
         #endregion

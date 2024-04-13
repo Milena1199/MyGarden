@@ -102,7 +102,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(68, 273);
+            label1.Location = new Point(80, 209);
             label1.Name = "label1";
             label1.Size = new Size(107, 32);
             label1.TabIndex = 22;
@@ -113,7 +113,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(68, 341);
+            label2.Location = new Point(80, 277);
             label2.Name = "label2";
             label2.Size = new Size(172, 32);
             label2.TabIndex = 23;
@@ -124,7 +124,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(68, 404);
+            label3.Location = new Point(80, 340);
             label3.Name = "label3";
             label3.Size = new Size(165, 32);
             label3.TabIndex = 24;
@@ -137,7 +137,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(284, 273);
+            label4.Location = new Point(296, 209);
             label4.Name = "label4";
             label4.Size = new Size(95, 32);
             label4.TabIndex = 25;
@@ -149,7 +149,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(284, 341);
+            label5.Location = new Point(296, 277);
             label5.Name = "label5";
             label5.Size = new Size(95, 32);
             label5.TabIndex = 26;
@@ -161,7 +161,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(68, 474);
+            label7.Location = new Point(80, 410);
             label7.Name = "label7";
             label7.Size = new Size(296, 32);
             label7.TabIndex = 28;
@@ -173,7 +173,7 @@
             // 
             textBox1.BackColor = Color.FromArgb(230, 227, 218);
             textBox1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(385, 263);
+            textBox1.Location = new Point(397, 199);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(263, 42);
@@ -184,11 +184,13 @@
             // button1
             // 
             button1.BackColor = Color.FromArgb(196, 189, 168);
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Lucida Fax", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(371, 535);
+            button1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(284, 505);
             button1.Name = "button1";
-            button1.Size = new Size(153, 48);
+            button1.Size = new Size(167, 61);
             button1.TabIndex = 30;
             button1.Tag = "hide";
             button1.Text = "Edit";
@@ -199,7 +201,7 @@
             // 
             textBox2.BackColor = Color.FromArgb(230, 227, 218);
             textBox2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(385, 331);
+            textBox2.Location = new Point(397, 267);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(263, 42);
@@ -211,7 +213,7 @@
             // 
             textBox3.BackColor = Color.FromArgb(230, 227, 218);
             textBox3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox3.Location = new Point(385, 394);
+            textBox3.Location = new Point(397, 330);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(263, 42);
@@ -223,7 +225,7 @@
             // 
             textBox4.BackColor = Color.FromArgb(230, 227, 218);
             textBox4.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox4.Location = new Point(385, 464);
+            textBox4.Location = new Point(397, 400);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(263, 42);
@@ -234,14 +236,17 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(196, 189, 168);
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Lucida Fax", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(412, 535);
+            button2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(482, 498);
             button2.Name = "button2";
-            button2.Size = new Size(203, 48);
+            button2.Size = new Size(203, 68);
             button2.TabIndex = 34;
             button2.Tag = "edit";
-            button2.Text = "Save changes";
+            button2.Text = "Save\r\nchanges";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Visible = false;
             button2.Click += button2_Click;
@@ -260,14 +265,17 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(196, 189, 168);
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Lucida Fax", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(80, 535);
+            button3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(80, 505);
             button3.Name = "button3";
-            button3.Size = new Size(153, 48);
+            button3.Size = new Size(172, 61);
             button3.TabIndex = 36;
             button3.Tag = "";
             button3.Text = "Log out";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 

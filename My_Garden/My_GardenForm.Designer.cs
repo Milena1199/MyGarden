@@ -54,6 +54,7 @@
             comboBox4 = new ComboBox();
             button5 = new Button();
             pictureBox8 = new PictureBox();
+            button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -247,48 +248,60 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightCoral;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(360, 530);
+            button1.ForeColor = Color.WhiteSmoke;
+            button1.Location = new Point(232, 530);
             button1.Name = "button1";
             button1.Size = new Size(210, 76);
             button1.TabIndex = 31;
             button1.Text = "Add garden";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.LightCoral;
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(360, 530);
+            button2.ForeColor = Color.WhiteSmoke;
+            button2.Location = new Point(232, 530);
             button2.Name = "button2";
             button2.Size = new Size(210, 76);
             button2.TabIndex = 32;
             button2.Text = "Add";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Visible = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.RosyBrown;
+            button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(587, 530);
+            button3.ForeColor = Color.WhiteSmoke;
+            button3.Location = new Point(455, 530);
             button3.Name = "button3";
             button3.Size = new Size(210, 76);
             button3.TabIndex = 36;
             button3.Text = "Update";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Visible = false;
             button3.Click += button3_Click;
             // 
             // button4
             // 
+            button4.BackColor = Color.RosyBrown;
+            button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(124, 530);
+            button4.ForeColor = Color.WhiteSmoke;
+            button4.Location = new Point(15, 530);
             button4.Name = "button4";
             button4.Size = new Size(210, 76);
             button4.TabIndex = 37;
             button4.Text = "Delete";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Visible = false;
             button4.Click += button4_Click;
             // 
@@ -361,13 +374,16 @@
             // 
             // button5
             // 
+            button5.BackColor = Color.RosyBrown;
+            button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(587, 530);
+            button5.ForeColor = Color.WhiteSmoke;
+            button5.Location = new Point(455, 530);
             button5.Name = "button5";
             button5.Size = new Size(210, 76);
             button5.TabIndex = 41;
             button5.Text = "Update zone";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Visible = false;
             button5.Click += button5_Click;
             // 
@@ -386,6 +402,19 @@
             pictureBox8.Visible = false;
             pictureBox8.Click += pictureBox8_Click;
             // 
+            // button6
+            // 
+            button6.BackColor = Color.LightCoral;
+            button6.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = Color.WhiteSmoke;
+            button6.Location = new Point(686, 530);
+            button6.Name = "button6";
+            button6.Size = new Size(210, 76);
+            button6.TabIndex = 43;
+            button6.Text = "Plants";
+            button6.UseVisualStyleBackColor = false;
+            button6.Visible = false;
+            // 
             // My_GardenForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -393,6 +422,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(964, 646);
+            Controls.Add(button6);
             Controls.Add(pictureBox8);
             Controls.Add(button5);
             Controls.Add(pictureBox6);
@@ -463,5 +493,6 @@
         private ComboBox comboBox4;
         private Button button5;
         private PictureBox pictureBox8;
+        private Button button6;
     }
 }

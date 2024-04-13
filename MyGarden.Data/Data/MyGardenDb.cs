@@ -19,17 +19,19 @@ namespace MyGarden.Data.Data
         public DbSet<Plant>? Plants { get; set; }
         public DbSet<PlantAndDisease>? PlantsAndDiseases { get; set; }
         public DbSet<PlantAndStyle>?PlantsAndStyles { get; set; }
-        public DbSet<PlantType>?PlantTypes { get; set; }
+        public DbSet<Category>?Categories { get; set; }
         public DbSet<Image>?Images { get; set; }
         public DbSet<User>?Users { get;set; }
         public DbSet<Worker>? Workers { get; set; }
         public DbSet<Plant_Garden>?Plants_Gardens { get; set; }
+        public DbSet<Plant_Category> Plants_Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PestAndPlant>().HasKey(p => new { p.PestId, p.PlantId });
             modelBuilder.Entity<PlantAndDisease>().HasKey(p => new { p.PlantId, p.DiseaseId });
             modelBuilder.Entity<PlantAndStyle>().HasKey(p => new { p.PlantId, p.StyleId });
-            modelBuilder.Entity<Plant_Garden>().HasKey(p =>new {p.PlantId, p.UsersGardenId});
+            modelBuilder.Entity<Plant_Garden>().HasKey(p =>new {p.PlantId, p.GardeningZoneId});
+            modelBuilder.Entity<Plant_Category>().HasKey(p=> new {p.PlantId, p.CategoryId});
 
             base.OnModelCreating(modelBuilder); 
         }

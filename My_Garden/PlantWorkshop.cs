@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,8 +28,7 @@ namespace My_Garden
 
         private void PlantWorkshop_Load(object sender, EventArgs e)
         {
-            List<PlantType> plantTypes = controller.AllPlantTypes();
-            if(plantTypes.Count==0) 
+            
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -52,6 +52,14 @@ namespace My_Garden
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddOrUpdateTypeForm addOrUpdate = new AddOrUpdateTypeForm();
+            Hide();
+            addOrUpdate.ShowDialog();
+            Close();
         }
     }
 }
