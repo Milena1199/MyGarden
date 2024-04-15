@@ -19,6 +19,7 @@ namespace My_Garden
         public static Guid plantid = PlantWorkshop.plantid;
         PlantController controller;
         public static List<string> images;
+        private string destinationFolder = Path.Combine(Application.StartupPath, "PlantImages");
         int num = -1;
         int count = 0;
 
@@ -35,8 +36,30 @@ namespace My_Garden
                 images = PlantWorkshop.images;
             }
             count = 0;
-            pictureBox6.Image = (Image)Properties.Resources.ResourceManager.GetObject(images[0]);
             num = 0;
+            string imageName = images[num];
+            string imagePath = FindImageInFolder(imageName);
+
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                pictureBox6.Image = Image.FromFile(imagePath);
+            }
+
+        }
+        private string FindImageInFolder(string imageName)
+        {
+            string[] imageExtensions = { ".jpg", ".jpeg", ".gif", ".bmp", ".png" };
+
+            foreach (string extension in imageExtensions)
+            {
+                string imagePath = Path.Combine(destinationFolder, imageName + extension);
+                if (File.Exists(imagePath))
+                {
+                    return imagePath;
+                }
+            }
+
+            return null;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -46,19 +69,31 @@ namespace My_Garden
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (num < images.Count - 1)
+            if (num < images.Count)
             {
                 num++;
-                pictureBox6.Image = (Image)Properties.Resources.ResourceManager.GetObject(images[num]);
+                string imageName = images[num];
+                string imagePath = FindImageInFolder(imageName);
+
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    pictureBox6.Image = Image.FromFile(imagePath);
+                }
             }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (num > images.Count - 1)
+            if (num > 0)
             {
                 num--;
-                pictureBox6.Image = (Image)Properties.Resources.ResourceManager.GetObject(images[num]);
+                string imageName = images[num];
+                string imagePath = FindImageInFolder(imageName);
+
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    pictureBox6.Image = Image.FromFile(imagePath);
+                }
             }
         }
 
@@ -79,26 +114,26 @@ namespace My_Garden
             
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png";
             openFileDialog.Title = "Select an image file";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = openFileDialog.FileName;
-                string resourceName = Path.GetFileNameWithoutExtension(fileName);
+                string filePath = openFileDialog.FileName;
 
-                // Remove the existing resource with the same name
-                if (Properties.Resources.ResourceManager.GetResourceSet(System.Globalization.CultureInfo.CurrentUICulture, true, true).Contains(resourceName))
-                {
-                    Properties.Resources.Remove(resourceName);
-                }
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                string file = Path.GetFileName(filePath);
 
-                // Save the image to the project's resources
-                Properties.Resources.Add(resourceName, File.ReadAllBytes(fileName));
-
-                images.Add(resourceName);
+                // Copy the file to the destination folder
+                string destinationPath = Path.Combine(destinationFolder, file);
+                File.Copy(filePath, destinationPath);
+                images.Add(fileName);
+                if(images.Contains("noImageFound")) images.Remove("noImageFound");
+                count++;
+                PlantImage_worker_Load(sender, e);
             }
         }
 

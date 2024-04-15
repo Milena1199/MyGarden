@@ -44,10 +44,6 @@ namespace My_Garden
                     {
                         if (control.Tag == "info") control.Enabled = true;
                     }
-                    foreach (Control control in panel1.Controls)
-                    {
-                        if (control.Tag == "info") control.Enabled = true;
-                    }
                     label17.Visible = false;
                     pictureBox4.Visible = false;
                     label18.Visible = false;

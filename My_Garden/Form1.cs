@@ -15,11 +15,11 @@ namespace My_Garden
 
         private void button1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             LogInForm login = new LogInForm();
             Hide();
             login.ShowDialog();
             Close();
-            timer1.Stop();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,7 +38,6 @@ namespace My_Garden
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //stop the fucking timer
             string randomImage = images[random.Next(0, images.Length)];
             this.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(randomImage);
             this.BackgroundImageLayout = ImageLayout.Stretch;
