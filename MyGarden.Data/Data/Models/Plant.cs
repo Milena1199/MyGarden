@@ -35,7 +35,7 @@ namespace MyGarden.Data.Data.Models
         [Required]
         public string? SoilType { get; set; }
         [Required]
-        public string? Maintance { get; set; }// PruningNeeds(podrqzvane), Fertilization(torene),special care, sun exposure, watering frequency
+        public string? Maintenance { get; set; }// PruningNeeds(podrqzvane), Fertilization(torene),special care, sun exposure, watering frequency
         [Required]
         public string? LenghtOfLife { get; set; }
         public decimal? Price { get; set; }

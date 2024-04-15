@@ -22,6 +22,24 @@ namespace MyGarden.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("MyGarden.Data.Data.Models.Disease", b =>
                 {
                     b.Property<Guid>("Id")
@@ -180,7 +198,7 @@ namespace MyGarden.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Maintance")
+                    b.Property<string>("Maintenance")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -202,14 +220,24 @@ namespace MyGarden.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("TypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("TypeId");
-
                     b.ToTable("Plants");
+                });
+
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Plant_Category", b =>
+                {
+                    b.Property<Guid>("PlantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PlantId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Plants_Categories");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.Plant_Garden", b =>
@@ -217,12 +245,12 @@ namespace MyGarden.Data.Migrations
                     b.Property<Guid>("PlantId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UsersGardenId")
+                    b.Property<Guid>("GardeningZoneId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("PlantId", "UsersGardenId");
+                    b.HasKey("PlantId", "GardeningZoneId");
 
-                    b.HasIndex("UsersGardenId");
+                    b.HasIndex("GardeningZoneId");
 
                     b.ToTable("Plants_Gardens");
                 });
@@ -258,24 +286,6 @@ namespace MyGarden.Data.Migrations
                     b.HasIndex("GardenStyleId");
 
                     b.ToTable("PlantsAndStyles");
-                });
-
-            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PlantTypes");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.User", b =>
@@ -364,34 +374,42 @@ namespace MyGarden.Data.Migrations
                     b.Navigation("Plant");
                 });
 
-            modelBuilder.Entity("MyGarden.Data.Data.Models.Plant", b =>
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Plant_Category", b =>
                 {
-                    b.HasOne("MyGarden.Data.Data.Models.PlantType", "Type")
-                        .WithMany("Plants")
-                        .HasForeignKey("TypeId")
+                    b.HasOne("MyGarden.Data.Data.Models.Category", "Category")
+                        .WithMany("PlantsAndCategories")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Type");
+                    b.HasOne("MyGarden.Data.Data.Models.Plant", "Plant")
+                        .WithMany()
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Plant");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.Plant_Garden", b =>
                 {
+                    b.HasOne("MyGarden.Data.Data.Models.GardeningZone", "GardeningZone")
+                        .WithMany("Plants_Gardens")
+                        .HasForeignKey("GardeningZoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MyGarden.Data.Data.Models.Plant", "Plant")
                         .WithMany("Plants_Gardens")
                         .HasForeignKey("PlantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyGarden.Data.Data.Models.GardeningZone", "UsersGarden")
-                        .WithMany("Plants_Gardens")
-                        .HasForeignKey("UsersGardenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("GardeningZone");
 
                     b.Navigation("Plant");
-
-                    b.Navigation("UsersGarden");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.PlantAndDisease", b =>
@@ -430,6 +448,11 @@ namespace MyGarden.Data.Migrations
                     b.Navigation("Plant");
                 });
 
+            modelBuilder.Entity("MyGarden.Data.Data.Models.Category", b =>
+                {
+                    b.Navigation("PlantsAndCategories");
+                });
+
             modelBuilder.Entity("MyGarden.Data.Data.Models.Disease", b =>
                 {
                     b.Navigation("PlantsAndDiseases");
@@ -461,11 +484,6 @@ namespace MyGarden.Data.Migrations
                     b.Navigation("PlantsAndStyles");
 
                     b.Navigation("Plants_Gardens");
-                });
-
-            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantType", b =>
-                {
-                    b.Navigation("Plants");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.User", b =>

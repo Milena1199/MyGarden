@@ -223,6 +223,16 @@ namespace My_Garden.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap noImageFound {
+            get {
+                object obj = ResourceManager.GetObject("noImageFound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap peat {
             get {
                 object obj = ResourceManager.GetObject("peat", resourceCulture);
