@@ -104,6 +104,7 @@
             button2.TabIndex = 24;
             button2.Text = "Categories";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -143,6 +144,7 @@
             button6.TabIndex = 28;
             button6.Text = "Styles";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // MainWorkerForm
             // 

@@ -195,8 +195,7 @@ namespace My_Garden
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (plantid == Guid.Empty) images.Add("noImageFound");
-            else images = controller.ShowImagesForPlant(plantid);
+            if (plantid!= Guid.Empty) images = controller.ShowImagesForPlant(plantid);
             if (images.Count == 0) images.Add("noImageFound");
 
             PlantImage_worker plantImage_Worker = new PlantImage_worker();

@@ -21,7 +21,7 @@ namespace MyGarden.Core.Controllers
         {
             GardeningZone gardeningZone = new GardeningZone()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 ClimateZone = newZoneViewModel.ClimateZone,
                 HardinessZone = newZoneViewModel.HardinessZone,
                 SoilType = newZoneViewModel.SoilType,

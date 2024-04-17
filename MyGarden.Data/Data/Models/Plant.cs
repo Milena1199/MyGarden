@@ -18,7 +18,7 @@ namespace MyGarden.Data.Data.Models
         [Required]
         public string? Name { get; set; }
 
-        public ICollection<Image>? Images { get; set; }
+        public ICollection<PlantImage>? Images { get; set; }
 
         ICollection<Plant_Category>?Plant_Categories { get; set; }
 

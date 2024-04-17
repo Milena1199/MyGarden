@@ -51,5 +51,21 @@ namespace My_Garden
             plantWorkshop.ShowDialog();
             Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Categories_worker categories_Worker = new Categories_worker();
+            Hide();
+            categories_Worker.ShowDialog();
+            Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            PlantStyles_worker plantStyles_Worker = new PlantStyles_worker();
+            Hide();
+            plantStyles_Worker.ShowDialog();
+            Close();
+        }
     }
 }

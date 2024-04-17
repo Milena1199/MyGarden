@@ -20,7 +20,7 @@ namespace MyGarden.Data.Data
         public DbSet<PlantAndDisease>? PlantsAndDiseases { get; set; }
         public DbSet<PlantAndStyle>?PlantsAndStyles { get; set; }
         public DbSet<Category>?Categories { get; set; }
-        public DbSet<Image>?Images { get; set; }
+        public DbSet<PlantImage>?PlantImages { get; set; }
         public DbSet<User>?Users { get;set; }
         public DbSet<Worker>? Workers { get; set; }
         public DbSet<Plant_Garden>?Plants_Gardens { get; set; }

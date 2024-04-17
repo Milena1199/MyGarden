@@ -18,7 +18,7 @@ namespace MyGarden.Core.Controllers
         {
             var user = new User()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Username = userViewModel.Username,
                 Password = userViewModel.Password,
                 Name = userViewModel.Name
@@ -31,7 +31,7 @@ namespace MyGarden.Core.Controllers
         {
             var worker = new Worker()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Username = workerViewModel.Username,
                 Password = workerViewModel.Password,
                 Name = workerViewModel.Name

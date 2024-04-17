@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyGarden.Core.Controllers
 {
@@ -32,7 +33,7 @@ namespace MyGarden.Core.Controllers
         {
             Plant plant = new Plant()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Name = addPlantViewModel.Name,
                 HowToPlant = addPlantViewModel.HowToPlant,
                 SeasonsOfInterest = addPlantViewModel.SeasonOfInteret,
@@ -50,13 +51,13 @@ namespace MyGarden.Core.Controllers
         {
             List<string> images = new List<string>();
             Plant plant = myGardenDb.Plants.Find(plantId);
-            List<Image> imagesforPlant = myGardenDb.Images.Where(i => i.PlantId == plantId).ToList();
+            List<PlantImage> imagesforPlant = myGardenDb.PlantImages.Where(i => i.PlantId == plantId).ToList();
             if (imagesforPlant.Count == 0) images.Add("noImageFound");
             else
             {
-                foreach (Image image in imagesforPlant)
+                foreach (PlantImage image in imagesforPlant)
                 {
-                    images.Add(image.Url);
+                    if(image.IsVisible==true) images.Add(image.Url);
                 }
             }
             return images;
@@ -69,22 +70,108 @@ namespace MyGarden.Core.Controllers
         }
         public void DeleteImage(Guid plantid, int index)
         {
-            List<Image> images = myGardenDb.Images.Where(i => i.PlantId == plantid).ToList();
-            Image image = images[index];
-            myGardenDb.Images.Remove(image);
-            myGardenDb.SaveChanges();
+            List<PlantImage> images = myGardenDb.PlantImages.Where(i => i.PlantId == plantid).ToList();
+            PlantImage image = images[index];
+            image.IsVisible = false;
         }
         public void AddImage(AddImageForPlantViewModel addImageForPlantViewModel)
         {
-            Image image = new Image()
+            PlantImage image = new PlantImage()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Url = addImageForPlantViewModel.Url,
+                IsVisible = true,
                 PlantId = addImageForPlantViewModel.PlantId
             };
-            myGardenDb.Images.Add(image);
+            myGardenDb.PlantImages.Add(image);
             myGardenDb.SaveChanges();
         }
-
+        public List<string> AllCategoriesNames()
+        {
+            List<string> names = new List<string>();
+            foreach (Category category in myGardenDb.Categories)
+            {
+                names.Add(category.Name);
+            }
+            return names;
+        }
+        public void AddCategory(AddCategoryViewModel addCategoryViewModel)
+        {
+            Category category = new Category()
+            {
+                Id = Guid.NewGuid(),
+                Name = addCategoryViewModel.Name,
+                Description = addCategoryViewModel.Description,
+            };
+            myGardenDb.Categories.Add(category);
+            myGardenDb.SaveChanges();
+        }
+        public void DeleteCategory(int index)
+        {
+            List<Category> categories = myGardenDb.Categories.ToList();
+            Category category = categories[index];
+            DeleteCategory_Plant(category.Id);
+            myGardenDb.Categories.Remove(category);
+            myGardenDb.SaveChanges();
+        }
+        public void DeleteCategory_Plant(Guid categoryId)
+        {
+            foreach (Plant_Category plant_Category  in myGardenDb.Plants_Categories)
+            {
+                if(plant_Category.CategoryId== categoryId)
+                {
+                    myGardenDb.Plants_Categories.Remove(plant_Category);
+                }
+            }
+            myGardenDb.SaveChanges();
+        }
+        public void UpdateCategory(UpdateCatrgoryViewModel updateCatrgoryViewModel)
+        {
+            List<Category> categories = myGardenDb.Categories.ToList();
+            Category category = categories[updateCatrgoryViewModel.Index];
+            category.Name = updateCatrgoryViewModel.Name;
+            category.Description = updateCatrgoryViewModel.Description;
+            myGardenDb.Update(category);
+            myGardenDb.SaveChanges();
+        }
+        public string GetCategoryDescription(int index)
+        {
+            List<Category> categories = myGardenDb.Categories.ToList();
+            Category category = categories[index];
+            return category.Description;
+        }
+        public void AddStyle(AddStyleViewModel addStyleViewModel)
+        {
+            GardenStyle style = new GardenStyle()
+            {
+                Id = Guid.NewGuid(),
+                Name = addStyleViewModel.Name,
+                Description = addStyleViewModel.Description,
+                Image = addStyleViewModel.ImagePath
+            };
+            myGardenDb.GardenStyles.Add(style);
+            myGardenDb.SaveChanges();
+        }
+        public List<string> ShowStyleNames ()
+        {
+            List<string>names = new List<string>();
+            foreach(GardenStyle style in myGardenDb.GardenStyles)
+            {
+                names.Add(style.Name);
+            }
+            return names;
+        }
+        public string GetStyleDescription(int index)
+        {
+            List<GardenStyle> styles = myGardenDb.GardenStyles.ToList();
+            GardenStyle style = styles[index];
+            return style.Description;
+        }
+        public string GetImagePathForStyle(int index)
+        {
+            List<GardenStyle> styles = myGardenDb.GardenStyles.ToList();
+            GardenStyle style = styles[index];
+            return style.Image;
+        }
     }
 }

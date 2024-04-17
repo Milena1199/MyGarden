@@ -115,25 +115,6 @@ namespace MyGarden.Data.Migrations
                     b.ToTable("GardenStyles");
                 });
 
-            modelBuilder.Entity("MyGarden.Data.Data.Models.Image", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PlantId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlantId");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("MyGarden.Data.Data.Models.Pest", b =>
                 {
                     b.Property<Guid>("Id")
@@ -288,6 +269,28 @@ namespace MyGarden.Data.Migrations
                     b.ToTable("PlantsAndStyles");
                 });
 
+            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("PlantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlantId");
+
+                    b.ToTable("PlantImages");
+                });
+
             modelBuilder.Entity("MyGarden.Data.Data.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -342,17 +345,6 @@ namespace MyGarden.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("MyGarden.Data.Data.Models.Image", b =>
-                {
-                    b.HasOne("MyGarden.Data.Data.Models.Plant", "Plant")
-                        .WithMany("Images")
-                        .HasForeignKey("PlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Plant");
                 });
 
             modelBuilder.Entity("MyGarden.Data.Data.Models.PestAndPlant", b =>
@@ -444,6 +436,17 @@ namespace MyGarden.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("GardenStyle");
+
+                    b.Navigation("Plant");
+                });
+
+            modelBuilder.Entity("MyGarden.Data.Data.Models.PlantImage", b =>
+                {
+                    b.HasOne("MyGarden.Data.Data.Models.Plant", "Plant")
+                        .WithMany("Images")
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Plant");
                 });

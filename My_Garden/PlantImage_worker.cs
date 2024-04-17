@@ -69,7 +69,7 @@ namespace My_Garden
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (num < images.Count)
+            if (num < images.Count-1)
             {
                 num++;
                 string imageName = images[num];
@@ -103,7 +103,10 @@ namespace My_Garden
             {
                 if (plantid == Guid.Empty)
                 {
+                    pictureBox6.Image.Dispose();
                     images.Remove(images[num]);
+                    if (images.Count == 0) images.Add("noImageFound");
+                    PlantImage_worker_Load(sender, e);
                 }
                 else controller.DeleteImage(plantid, num);
             }
@@ -123,23 +126,37 @@ namespace My_Garden
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-
                 string fileName = Path.GetFileNameWithoutExtension(filePath);
                 string file = Path.GetFileName(filePath);
-
-                // Copy the file to the destination folder
-                string destinationPath = Path.Combine(destinationFolder, file);
-                File.Copy(filePath, destinationPath);
-                images.Add(fileName);
-                if(images.Contains("noImageFound")) images.Remove("noImageFound");
-                count++;
-                PlantImage_worker_Load(sender, e);
+                if (File.Exists(FindImageInFolder(fileName)) == false)
+                {
+                    string destinationPath = Path.Combine(destinationFolder, file);
+                    File.Copy(filePath, destinationPath);
+                    images.Add(fileName);
+                    if (images.Contains("noImageFound")) images.Remove("noImageFound");
+                    count++;
+                    PlantImage_worker_Load(sender, e);
+                }
+                else
+                {
+                    if(images.Contains(fileName) == false)
+                    {
+                        images.Add(fileName);
+                        if (images.Contains("noImageFound")) images.Remove("noImageFound");
+                        count++;
+                        PlantImage_worker_Load(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The image is already in use.","Images");
+                    }
+                }
             }
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            PlantWorkshop.images = images;
+            PlantWorkshop.images = PlantImage_worker.images;
             this.Close();
         }
     }
