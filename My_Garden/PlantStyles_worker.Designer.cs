@@ -224,12 +224,13 @@
             button5.BackgroundImage = (Image)resources.GetObject("button5.BackgroundImage");
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(461, 413);
+            button5.Location = new Point(461, 486);
             button5.Name = "button5";
             button5.Size = new Size(176, 67);
             button5.TabIndex = 59;
             button5.Text = "Update";
             button5.UseVisualStyleBackColor = true;
+            button5.Visible = false;
             button5.Click += button5_Click;
             // 
             // PlantStyles_worker

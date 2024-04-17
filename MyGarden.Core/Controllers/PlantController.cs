@@ -192,5 +192,16 @@ namespace MyGarden.Core.Controllers
             }
             myGardenDb.SaveChanges();
         }
+        public void UpdateStyle(UpdateStyleViewModel updatestyleViewModel)
+        {
+            List<GardenStyle> styles = myGardenDb.GardenStyles.ToList();
+            GardenStyle gardenStyle = styles[updatestyleViewModel.Index];
+            gardenStyle.Name = updatestyleViewModel.Name;
+            gardenStyle.Description = updatestyleViewModel.Description;
+            gardenStyle.Image = updatestyleViewModel.ImagePath;
+            myGardenDb.Update(gardenStyle);
+            myGardenDb.SaveChanges();
+        }
+
     }
 }

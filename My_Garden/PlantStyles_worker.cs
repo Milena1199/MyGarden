@@ -96,6 +96,7 @@ namespace My_Garden
             button2.Visible = true;
             button3.Visible = true;
             button4.Visible = false;
+            button5.Visible = false;
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox1.Text = "";
@@ -154,7 +155,15 @@ namespace My_Garden
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            UpdateStyleViewModel updateStyleViewModel = new UpdateStyleViewModel()
+            {
+                Index = index,
+                Name = textBox1.Text,
+                Description = textBox2.Text,
+                ImagePath = image
+            };
+            controller.UpdateStyle(updateStyleViewModel);
+            PlantStyles_worker_Load(sender,e);
         }
     }
 }
