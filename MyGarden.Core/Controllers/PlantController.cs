@@ -173,5 +173,24 @@ namespace MyGarden.Core.Controllers
             GardenStyle style = styles[index];
             return style.Image;
         }
+        public void DeleteStyle(int index)
+        {
+            List<GardenStyle> styles = myGardenDb.GardenStyles.ToList();
+            GardenStyle style = styles[index];
+            DeleteStyle_Plant(style.Id);
+            myGardenDb.GardenStyles.Remove(style);
+            myGardenDb.SaveChanges();
+        }
+        public void DeleteStyle_Plant(Guid styleId)
+        {
+            foreach (PlantAndStyle plantAndStyle in myGardenDb.PlantsAndStyles)
+            {
+                if (plantAndStyle.StyleId == styleId)
+                {
+                    myGardenDb.PlantsAndStyles.Remove(plantAndStyle);
+                }
+            }
+            myGardenDb.SaveChanges();
+        }
     }
 }

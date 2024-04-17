@@ -65,6 +65,7 @@ namespace My_Garden
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             pictureBox1.Visible = true;
+            pictureBox2.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
             button1.Visible = false;
             button2.Visible = false;
             button3.Visible = false;
@@ -113,10 +114,10 @@ namespace My_Garden
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listBox1.SelectedIndex>=0)
+            if (listBox1.SelectedIndex >= 0)
             {
                 index = listBox1.SelectedIndex;
-                textBox1.Text= listBox1.SelectedItem.ToString();
+                textBox1.Text = listBox1.SelectedItem.ToString();
                 textBox2.Text = controller.GetStyleDescription(index);
                 pictureBox2.Image = Image.FromFile(controller.GetImagePathForStyle(index));
                 image = controller.GetImagePathForStyle(index);
@@ -125,6 +126,35 @@ namespace My_Garden
                 button3.Visible = true;
                 button4.Visible = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            pictureBox2.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
+            image = null;
+            listBox1.Items.Remove(listBox1.Items[index]);
+            listBox1.SelectedIndex = -1;
+            controller.DeleteStyle(index);
+            PlantStyles_worker_Load(sender, e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = true;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            pictureBox1.Visible = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

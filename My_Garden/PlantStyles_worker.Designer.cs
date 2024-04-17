@@ -43,6 +43,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             button4 = new Button();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -166,6 +167,7 @@
             button2.TabIndex = 54;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -178,6 +180,7 @@
             button3.TabIndex = 55;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // pictureBox1
             // 
@@ -216,6 +219,19 @@
             button4.Visible = false;
             button4.Click += button4_Click;
             // 
+            // button5
+            // 
+            button5.BackgroundImage = (Image)resources.GetObject("button5.BackgroundImage");
+            button5.BackgroundImageLayout = ImageLayout.Stretch;
+            button5.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.Location = new Point(461, 413);
+            button5.Name = "button5";
+            button5.Size = new Size(176, 67);
+            button5.TabIndex = 59;
+            button5.Text = "Update";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // PlantStyles_worker
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -223,6 +239,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(866, 578);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -266,5 +283,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button button4;
+        private Button button5;
     }
 }
