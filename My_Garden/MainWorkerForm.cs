@@ -67,5 +67,21 @@ namespace My_Garden
             plantStyles_Worker.ShowDialog();
             Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PlantDiseases_worker plantDiseases_Worker = new PlantDiseases_worker();
+            Hide();
+            plantDiseases_Worker.ShowDialog();
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PestsForm_worker pestsForm = new PestsForm_worker();
+            Hide();
+            pestsForm.ShowDialog();
+            Close();
+        }
     }
 }

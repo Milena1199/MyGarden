@@ -118,6 +118,7 @@
             button3.TabIndex = 25;
             button3.Text = "Pests";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -131,6 +132,7 @@
             button4.TabIndex = 26;
             button4.Text = "Diseases";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button6
             // 

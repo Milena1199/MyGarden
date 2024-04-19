@@ -93,10 +93,7 @@ namespace My_Garden
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddOrUpdateTypeForm addOrUpdate = new AddOrUpdateTypeForm();
-            Hide();
-            addOrUpdate.ShowDialog();
-            Close();
+
         }
         //add1
         private void label17_Click(object sender, EventArgs e)

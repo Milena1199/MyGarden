@@ -24,10 +24,10 @@ namespace My_Garden
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == null) MessageBox.Show("Please, choose your username.", "Register");
-            else if (textBox2.Text == null) MessageBox.Show("Please, make a password.", "Register");
-            else if (textBox3.Text == null) MessageBox.Show("Please, confirm your password.", "Register");
-            else if (textBox4.Text == null) MessageBox.Show("Please, put in your name.", "Register");
+            if (textBox1.Text == "") MessageBox.Show("Please, choose your username.", "Register");
+            else if (textBox2.Text == "") MessageBox.Show("Please, make a password.", "Register");
+            else if (textBox3.Text == "") MessageBox.Show("Please, confirm your password.", "Register");
+            else if (textBox4.Text == "") MessageBox.Show("Please, put in your name.", "Register");
             else if (textBox2.Text != textBox3.Text)
             {
                 MessageBox.Show("Your password doesn't match the confrim password one", "Register");
