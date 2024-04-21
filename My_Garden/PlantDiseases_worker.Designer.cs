@@ -215,6 +215,7 @@
             button3.TabIndex = 66;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -223,7 +224,7 @@
             button4.BackgroundImageLayout = ImageLayout.Stretch;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(231, 341);
+            button4.Location = new Point(229, 406);
             button4.Name = "button4";
             button4.Size = new Size(163, 59);
             button4.TabIndex = 67;
@@ -263,6 +264,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(924, 477);
             panel1.TabIndex = 69;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox3
             // 

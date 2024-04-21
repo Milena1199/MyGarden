@@ -11,6 +11,7 @@ namespace MyGarden.Data.Data.Models
         public Guid Id { get; set; }
         [Required]
         public string? Name { get; set; }
+        public string? Description { get; set; }
         public string? Image { get; set; }
 
         public string? Cure { get; set; }

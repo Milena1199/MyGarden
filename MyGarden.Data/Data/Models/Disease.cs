@@ -13,7 +13,6 @@ namespace MyGarden.Data.Data.Models
         [Required]
         public string? Name { get; set; }
 
-        [Required]
         public string? Description { get; set; }
 
         public string? Image { get; set; }

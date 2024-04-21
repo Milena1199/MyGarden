@@ -13,6 +13,7 @@ using System.Net;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace MyGarden.Core.Controllers
 {
@@ -233,5 +234,100 @@ namespace MyGarden.Core.Controllers
             Disease disease = diseases[index];
             return disease;
         }
+        public void DeleteDisease (int index)
+        {
+            List<Disease> diseases = myGardenDb.Diseases.ToList();
+            Disease disease = diseases[index];
+            DeleteDisease_Plant(disease.Id);
+            myGardenDb.Diseases.Remove(disease);
+            myGardenDb.SaveChanges();
+        }
+        public void DeleteDisease_Plant (Guid diseaseId)
+        {
+            foreach(PlantAndDisease plantAndDisease in myGardenDb.PlantsAndDiseases)
+            {
+                if (plantAndDisease.DiseaseId == diseaseId)
+                {
+                    myGardenDb.PlantsAndDiseases.Remove(plantAndDisease);
+                }
+            }
+        }
+        public void UpdateDisease (UpdateDiseaseViewModel updateDiseaseViewModel)
+        {
+            List<Disease> diseases = myGardenDb.Diseases.ToList();
+            Disease disease = diseases[updateDiseaseViewModel.Index];
+            disease.Name = updateDiseaseViewModel.Name;
+            disease.Description = updateDiseaseViewModel.Description;
+            disease.Image = updateDiseaseViewModel.Image;
+            disease.Cure = updateDiseaseViewModel.Cure;
+            disease.CureImage = updateDiseaseViewModel.CureImage;
+            myGardenDb.Diseases.Update(disease);
+            myGardenDb.SaveChanges();
+        }
+        public void AddPest(AddPestViewModel addPestViewModel)
+        {
+            Pest pest = new Pest()
+            {
+                Id = Guid.NewGuid(),
+                Name = addPestViewModel.Name,
+                Description = addPestViewModel.Description,
+                Image = addPestViewModel.Image,
+                Cure = addPestViewModel.Cure,
+                CureImage = addPestViewModel.CureImage
+            };
+            myGardenDb.Pests.Add(pest);
+            myGardenDb.SaveChanges();
+        }
+
+        public List<string> AllPestsNames()
+        {
+            List<string> pests = new List<string>();
+            foreach (Pest pest in myGardenDb.Pests)
+            {
+                pests.Add(pest.Name);
+            }
+            return pests;
+        }
+
+        public Pest GetPest(int index)
+        {
+            List<Pest> pests = myGardenDb.Pests.ToList();
+            Pest pest = pests[index];
+            return pest;
+        }
+
+        public void DeletePest(int index)
+        {
+            List<Pest> pests = myGardenDb.Pests.ToList();
+            Pest pest = pests[index];
+            DeletePest_Plant(pest.Id);
+            myGardenDb.Pests.Remove(pest);
+            myGardenDb.SaveChanges();
+        }
+
+        public void DeletePest_Plant(Guid pestId)
+        {
+            foreach (PestAndPlant pestAndPlant in myGardenDb.PestsAndPlants)
+            {
+                if (pestAndPlant.PestId == pestId)
+                {
+                    myGardenDb.PestsAndPlants.Remove(pestAndPlant);
+                }
+            }
+        }
+
+        public void UpdatePest(UpdatePestViewModel updatePestViewModel)
+        {
+            List<Pest> pests = myGardenDb.Pests.ToList();
+            Pest pest = pests[updatePestViewModel.Index];
+            pest.Name = updatePestViewModel.Name;
+            pest.Description = updatePestViewModel.Description;
+            pest.Image = updatePestViewModel.Image;
+            pest.Cure = updatePestViewModel.Cure;
+            pest.CureImage = updatePestViewModel.CureImage;
+            myGardenDb.Pests.Update(pest);
+            myGardenDb.SaveChanges();
+        }
+
     }
 }

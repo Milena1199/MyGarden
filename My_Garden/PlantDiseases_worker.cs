@@ -45,7 +45,7 @@ namespace My_Garden
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listBox1.SelectedIndex>=0)
+            if (listBox1.SelectedIndex >= 0)
             {
                 index = listBox1.SelectedIndex;
                 textBox1.Text = listBox1.SelectedItem.ToString();
@@ -152,9 +152,9 @@ namespace My_Garden
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "")
+            if (textBox1.Text == "")
             {
-                MessageBox.Show("Please, add disease name and description information first.","Diseases");
+                MessageBox.Show("Please, add disease name first.", "Diseases");
             }
             else
             {
@@ -164,13 +164,23 @@ namespace My_Garden
                 {
                     Name = textBox1.Text,
                     Description = textBox2.Text,
-                    Image = diseaseImage, 
+                    Image = diseaseImage,
                     Cure = textBox3.Text,
                     CureImage = cureImage
                 };
                 controller.AddDisease(addDiseaseViewModel);
                 PlantDiseases_worker_Load(sender, e);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
