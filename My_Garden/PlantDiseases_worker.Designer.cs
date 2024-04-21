@@ -115,7 +115,7 @@
             pictureBox2.Location = new Point(559, 121);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(230, 151);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 63;
             pictureBox2.TabStop = false;
             // 
@@ -123,7 +123,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(385, 122);
+            pictureBox1.Location = new Point(817, 98);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(92, 84);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

@@ -142,6 +142,9 @@ namespace My_Garden
             button3.Visible = false;
             button4.Visible = true;
             button5.Visible = false;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
