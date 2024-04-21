@@ -1,4 +1,6 @@
 ﻿using MyGarden.Core.Controllers;
+using MyGarden.Core.Models;
+using MyGarden.Data.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using Image = System.Drawing.Image;
+
+
 
 namespace My_Garden
 {
     public partial class PlantDiseases_worker : Form
     {
-        PlantController controllr;
+        PlantController controller;
         List<string> diseases = new List<string>();
         private int index;
         private string destinationFolder = Path.Combine(Application.StartupPath, "PlantImages");
@@ -25,7 +27,7 @@ namespace My_Garden
         public PlantDiseases_worker()
         {
             InitializeComponent();
-            controllr = new PlantController();
+            controller = new PlantController();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -59,6 +61,18 @@ namespace My_Garden
             button3.Visible = true;
             button4.Visible = false;
             button5.Visible = false;
+            pictureBox1.Visible = false;
+            pictureBox4.Visible = false;
+            pictureBox2.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
+            pictureBox3.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
+            listBox1.SelectedIndex = -1;
+            diseases = controller.AllDiseasesNames();
+            if (diseases.Count != 0)
+            {
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(diseases.ToArray());
+            }
+            else MessageBox.Show("No diseases found, click the add button below to make a new one", "Diseases");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -122,7 +136,22 @@ namespace My_Garden
         {
             if (textBox1.Text == "" || textBox2.Text == "")
             {
-                MessageBox.Show("Please, add all of your information first.");
+                MessageBox.Show("Please, add disease name and description information first.","Diseases");
+            }
+            else
+            {
+                if (diseaseImage == null) diseaseImage = Path.Combine(destinationFolder, "noImageFound.png");
+                if (cureImage == null) cureImage = Path.Combine(destinationFolder, "noImageFound.png");
+                AddDiseaseViewModel addDiseaseViewModel = new AddDiseaseViewModel()
+                {
+                    Name = textBox1.Text,
+                    Description = textBox2.Text,
+                    Image = diseaseImage, 
+                    Cure = textBox3.Text,
+                    CureImage = cureImage
+                };
+                controller.AddDisease(addDiseaseViewModel);
+                PlantDiseases_worker_Load(sender, e);
             }
         }
     }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Net;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Net.Http.Headers;
 
 namespace MyGarden.Core.Controllers
 {
@@ -216,6 +217,15 @@ namespace MyGarden.Core.Controllers
             };
             myGardenDb.Diseases.Add(disease);
             myGardenDb.SaveChanges();
+        }
+        public List<string>AllDiseasesNames ()
+        {
+            List<string> diseases = new List<string>();
+            foreach(Disease disease in myGardenDb.Diseases)
+            {
+                diseases.Add(disease.Name);
+            }
+            return diseases;
         }
 
     }
