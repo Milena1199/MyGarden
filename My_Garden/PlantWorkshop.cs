@@ -162,7 +162,6 @@ namespace My_Garden
         //add2
         private void picturebox6_Click(object sender, EventArgs e)
         {
-            //add validation
             AddPlantViewModel addPlantViewModel = new AddPlantViewModel()
             {
                 Name = textBox1.Text,

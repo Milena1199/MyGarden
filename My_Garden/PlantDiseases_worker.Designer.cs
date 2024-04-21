@@ -49,8 +49,6 @@
             pictureBox4 = new PictureBox();
             textBox3 = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
-            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -109,6 +107,7 @@
             listBox1.ScrollAlwaysVisible = true;
             listBox1.Size = new Size(206, 454);
             listBox1.TabIndex = 51;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // pictureBox2
             // 
@@ -131,6 +130,7 @@
             pictureBox1.TabIndex = 62;
             pictureBox1.TabStop = false;
             pictureBox1.Visible = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox2
             // 
@@ -139,7 +139,7 @@
             textBox2.Location = new Point(252, 279);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(483, 121);
+            textBox2.Size = new Size(619, 154);
             textBox2.TabIndex = 61;
             // 
             // textBox1
@@ -187,6 +187,7 @@
             button1.TabIndex = 64;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -226,9 +227,10 @@
             button4.Name = "button4";
             button4.Size = new Size(163, 59);
             button4.TabIndex = 67;
-            button4.Text = "button4";
+            button4.Text = "Add";
             button4.UseVisualStyleBackColor = false;
             button4.Visible = false;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -240,7 +242,7 @@
             button5.Name = "button5";
             button5.Size = new Size(163, 59);
             button5.TabIndex = 68;
-            button5.Text = "button5";
+            button5.Text = "Edit";
             button5.UseVisualStyleBackColor = true;
             button5.Visible = false;
             // 
@@ -252,10 +254,8 @@
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(textBox3);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox4);
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button5);
-            panel1.Controls.Add(label5);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -273,6 +273,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 75;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox4
             // 
@@ -285,15 +286,16 @@
             pictureBox4.TabIndex = 74;
             pictureBox4.TabStop = false;
             pictureBox4.Visible = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // textBox3
             // 
             textBox3.Enabled = false;
             textBox3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox3.Location = new Point(318, 196);
+            textBox3.Location = new Point(277, 152);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(483, 121);
+            textBox3.Size = new Size(573, 148);
             textBox3.TabIndex = 73;
             // 
             // label4
@@ -301,32 +303,11 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Lucida Fax", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(318, 119);
+            label4.Location = new Point(293, 91);
             label4.Name = "label4";
-            label4.Size = new Size(296, 36);
+            label4.Size = new Size(101, 36);
             label4.TabIndex = 71;
-            label4.Text = "Cure description:";
-            // 
-            // textBox4
-            // 
-            textBox4.Enabled = false;
-            textBox4.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox4.Location = new Point(512, 35);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(280, 36);
-            textBox4.TabIndex = 72;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Lucida Fax", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(317, 35);
-            label5.Name = "label5";
-            label5.Size = new Size(198, 36);
-            label5.TabIndex = 70;
-            label5.Text = "Cure name:";
+            label4.Text = "Cure:";
             // 
             // PlantDiseases_worker
             // 
@@ -351,6 +332,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PlantDiseases_worker";
             Text = "PlantDiseases_worker";
+            Load += PlantDiseases_worker_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -381,11 +363,9 @@
         private Button button4;
         private Button button5;
         private Panel panel1;
-        private TextBox textBox3;
-        private TextBox textBox4;
         private Label label4;
-        private Label label5;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
+        private TextBox textBox3;
     }
 }

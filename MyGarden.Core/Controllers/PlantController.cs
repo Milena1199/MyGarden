@@ -203,5 +203,20 @@ namespace MyGarden.Core.Controllers
             myGardenDb.SaveChanges();
         }
 
+        public void AddDisease(AddDiseaseViewModel addDiseaseViewModel)
+        {
+            Disease disease = new Disease()
+            {
+                Id = Guid.NewGuid(),
+                Name = addDiseaseViewModel.Name,
+                Description = addDiseaseViewModel.Description,
+                Image = addDiseaseViewModel.Image,
+                Cure = addDiseaseViewModel.Cure,
+                CureImage = addDiseaseViewModel.CureImage
+            };
+            myGardenDb.Diseases.Add(disease);
+            myGardenDb.SaveChanges();
+        }
+
     }
 }

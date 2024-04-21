@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAALutJREFUeF7t3QnYbnO9/3HTNmZvpDKXOVMlGoTYG5kjMlSikdP/VM5RoeQkpRQh
+        vgAADr4B6kKxwAAALutJREFUeF7t3QnYbnO9/3HTNmZvpDKXOVMlGoTYG5kjMlSikdP/VM5RoeQkpRQh
         SRlKaZLKkJJOhNJAGk9Chv6GzDbbbJPz/3z+9lPb3t/nee7nee51r+/vt96v63pfV1eJba11r3n9fvMA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -578,7 +578,7 @@
   <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAADMYAAATVCAYAAADyjDm8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        vgAAMr4BqPBiEgAA/7JJREFUeF7s/eWbW1e6tv3u/3Af77sf6O7VkO4wO4bEFFPsOI6Z2WW7XEwuZmbm
+        vQAAMr0BBUlDfwAA/7JJREFUeF7s/eWbW1e6tv3u/3Af77sf6O7VkO4wO4bEFFPsOI6Z2WW7XEwuZmbm
         EjNzqRh97XGPKVWVHXcv7tXuXB9+h6SpKWlKJQ1/mafv/08qGX1FRERERERERERERERERERERERERERE
         RERE9K7RYcx8KgYiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiKidwnDGCIiIiIiIiIiIiIiIiIiIiIiIiIi
         IiIiInonMYwhIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiKidxLDGCIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
@@ -19179,7 +19179,7 @@
   <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAADMYAAATVCAYAAADyjDm8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        vQAAMr0BBUlDfwAA/7JJREFUeF7s/eWbW1e6tv3u/3Af77sf6O7VkO4wO4bEFFPsOI6Z2WW7XEwuZmbm
+        vAAAMrwB1w6hmwAA/7JJREFUeF7s/eWbW1e6tv3u/3Af77sf6O7VkO4wO4bEFFPsOI6Z2WW7XEwuZmbm
         EjNzqRh97XGPKVWVHXcv7tXuXB9+h6SpKWlKJQ1/mafv/08qGX1FRERERERERERERERERERERERERERE
         RERE9K7RYcx8KgYiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiKidwnDGCIiIiIiIiIiIiIiIiIiIiIiIiIi
         IiIiInonMYwhIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiKidxLDGCIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi

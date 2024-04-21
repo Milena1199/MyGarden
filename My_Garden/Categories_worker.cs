@@ -17,8 +17,7 @@ namespace My_Garden
         PlantController controller;
         List<string> categories;
         private int index;
-        private string name;
-        private string description;
+
         public Categories_worker()
         {
             InitializeComponent();

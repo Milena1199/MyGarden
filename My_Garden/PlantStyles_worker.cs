@@ -20,6 +20,7 @@ namespace My_Garden
         private string image;
         private int index;
         List<string> styles;
+
         public PlantStyles_worker()
         {
             InitializeComponent();
@@ -75,7 +76,8 @@ namespace My_Garden
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "") MessageBox.Show("Please, fill in all of the information first.", "Styles");
+            if (textBox1.Text == "" || textBox2.Text == "") MessageBox.Show("Please, fill in all of " +
+                "the information first.", "Styles");
             else
             {
                 if (image == null) image = Path.Combine(destinationFolder, "noImageFound.png");
@@ -110,7 +112,8 @@ namespace My_Garden
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(styles.ToArray());
             }
-            else MessageBox.Show("No garden styles were found. Click the add button to make one.", "Garden styles");
+            else MessageBox.Show("No garden styles were found. Click the add button to m" +
+                "ake one.", "Garden styles");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
