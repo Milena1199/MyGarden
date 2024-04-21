@@ -175,12 +175,51 @@ namespace My_Garden
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            pictureBox2.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
+            pictureBox3.Image = Image.FromFile(Path.Combine(destinationFolder, "noImageFound.png"));
+            diseaseImage = null;
+            cureImage = null;
+            listBox1.Items.Remove(listBox1.Items[index]);
+            listBox1.SelectedIndex = -1;
+            controller.DeleteDisease(index);
+            PlantDiseases_worker_Load(sender, e);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = true;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            pictureBox1.Visible = true;
+            pictureBox4.Visible = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UpdateDiseaseViewModel updateDiseaseViewModel = new UpdateDiseaseViewModel()
+            {
+                Index = index,
+                Name = textBox1.Text,
+                Description = textBox2.Text,
+                Image = diseaseImage,
+                Cure = textBox3.Text,
+                CureImage = cureImage
+            };
+            controller.UpdateDisease(updateDiseaseViewModel);
+            PlantDiseases_worker_Load(sender, e);
         }
     }
 }

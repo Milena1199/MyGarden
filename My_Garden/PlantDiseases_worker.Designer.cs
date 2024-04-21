@@ -123,7 +123,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(817, 98);
+            pictureBox1.Location = new Point(431, 121);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(92, 84);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -201,6 +201,7 @@
             button2.TabIndex = 65;
             button2.Text = "Edit";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -239,13 +240,14 @@
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(419, 341);
+            button5.Location = new Point(419, 406);
             button5.Name = "button5";
             button5.Size = new Size(163, 59);
             button5.TabIndex = 68;
             button5.Text = "Edit";
             button5.UseVisualStyleBackColor = true;
             button5.Visible = false;
+            button5.Click += button5_Click;
             // 
             // panel1
             // 
@@ -272,7 +274,7 @@
             pictureBox3.Location = new Point(25, 149);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(230, 151);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 75;
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
@@ -319,8 +321,8 @@
             BackColor = Color.FromArgb(230, 207, 173);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(938, 569);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label3);
