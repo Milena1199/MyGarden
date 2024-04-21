@@ -227,6 +227,11 @@ namespace MyGarden.Core.Controllers
             }
             return diseases;
         }
-
+        public Disease GetDisease (int index)
+        {
+            List<Disease> diseases = myGardenDb.Diseases.ToList();
+            Disease disease = diseases[index];
+            return disease;
+        }
     }
 }

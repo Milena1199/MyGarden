@@ -45,7 +45,22 @@ namespace My_Garden
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(listBox1.SelectedIndex>=0)
+            {
+                index = listBox1.SelectedIndex;
+                textBox1.Text = listBox1.SelectedItem.ToString();
+                textBox2.Text = controller.GetDisease(index).Description;
+                textBox3.Text = controller.GetDisease(index).Cure;
+                diseaseImage = controller.GetDisease(index).Image;
+                cureImage = controller.GetDisease(index).CureImage;
+                pictureBox2.Image = Image.FromFile(diseaseImage);
+                pictureBox3.Image = Image.FromFile(cureImage);
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+                button4.Visible = false;
+                button5.Visible = false;
+            }
         }
 
         private void PlantDiseases_worker_Load(object sender, EventArgs e)
