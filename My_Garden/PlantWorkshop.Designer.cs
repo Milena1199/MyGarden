@@ -47,6 +47,11 @@
             label12 = new Label();
             label13 = new Label();
             panel1 = new Panel();
+            label22 = new Label();
+            label21 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            pictureBox4 = new PictureBox();
             numericUpDown1 = new NumericUpDown();
             label20 = new Label();
             pictureBox7 = new PictureBox();
@@ -70,20 +75,15 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            label17 = new Label();
-            label18 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -285,6 +285,11 @@
             // panel1
             // 
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Controls.Add(label22);
+            panel1.Controls.Add(label21);
+            panel1.Controls.Add(label18);
+            panel1.Controls.Add(label17);
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(numericUpDown1);
             panel1.Controls.Add(label20);
             panel1.Controls.Add(pictureBox7);
@@ -316,6 +321,73 @@
             panel1.Size = new Size(1051, 994);
             panel1.TabIndex = 61;
             // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.BackColor = Color.Transparent;
+            label22.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Image = (Image)resources.GetObject("label22.Image");
+            label22.Location = new Point(882, 884);
+            label22.Name = "label22";
+            label22.Size = new Size(130, 40);
+            label22.TabIndex = 83;
+            label22.Text = "Delete";
+            label22.Visible = false;
+            label22.Click += label22_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.BackColor = Color.Transparent;
+            label21.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label21.Image = (Image)resources.GetObject("label21.Image");
+            label21.Location = new Point(468, 840);
+            label21.Name = "label21";
+            label21.Size = new Size(89, 40);
+            label21.TabIndex = 82;
+            label21.Text = "Add";
+            label21.Visible = false;
+            label21.Click += label21_Click;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.Transparent;
+            label18.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.Image = (Image)resources.GetObject("label18.Image");
+            label18.Location = new Point(60, 851);
+            label18.Name = "label18";
+            label18.Size = new Size(143, 40);
+            label18.TabIndex = 81;
+            label18.Text = "Update";
+            label18.Visible = false;
+            label18.Click += label18_Click;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = Color.Transparent;
+            label17.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label17.Image = (Image)resources.GetObject("label17.Image");
+            label17.Location = new Point(701, 938);
+            label17.Name = "label17";
+            label17.Size = new Size(130, 40);
+            label17.TabIndex = 80;
+            label17.Text = "Delete";
+            label17.Click += label17_Click_1;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(650, 894);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(210, 97);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 79;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click_1;
+            // 
             // numericUpDown1
             // 
             numericUpDown1.Enabled = false;
@@ -335,22 +407,24 @@
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label20.Image = (Image)resources.GetObject("label20.Image");
-            label20.Location = new Point(375, 934);
+            label20.Location = new Point(247, 939);
             label20.Name = "label20";
             label20.Size = new Size(143, 40);
             label20.TabIndex = 77;
             label20.Text = "Update";
+            label20.Click += label20_Click;
             // 
             // pictureBox7
             // 
             pictureBox7.BackColor = Color.Transparent;
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(324, 890);
+            pictureBox7.Location = new Point(196, 895);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(210, 97);
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox7.TabIndex = 76;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
             // 
             // label19
             // 
@@ -358,7 +432,7 @@
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label19.Image = (Image)resources.GetObject("label19.Image");
-            label19.Location = new Point(595, 930);
+            label19.Location = new Point(467, 935);
             label19.Name = "label19";
             label19.Size = new Size(89, 40);
             label19.TabIndex = 70;
@@ -381,7 +455,7 @@
             // 
             pictureBox6.BackColor = Color.Transparent;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(558, 899);
+            pictureBox6.Location = new Point(430, 904);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(210, 88);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -541,6 +615,7 @@
             checkedListBox1.Size = new Size(243, 124);
             checkedListBox1.TabIndex = 63;
             checkedListBox1.Tag = "info";
+            checkedListBox1.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -586,55 +661,8 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 67;
             pictureBox3.TabStop = false;
+            pictureBox3.Visible = false;
             pictureBox3.Click += pictureBox3_Click;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(815, 168);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(210, 88);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 68;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(796, 262);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(210, 97);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 69;
-            pictureBox5.TabStop = false;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.BackColor = Color.Transparent;
-            label17.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Image = (Image)resources.GetObject("label17.Image");
-            label17.Location = new Point(868, 201);
-            label17.Name = "label17";
-            label17.Size = new Size(89, 40);
-            label17.TabIndex = 70;
-            label17.Text = "Add";
-            label17.Click += label17_Click;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = Color.Transparent;
-            label18.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Image = (Image)resources.GetObject("label18.Image");
-            label18.Location = new Point(847, 306);
-            label18.Name = "label18";
-            label18.Size = new Size(143, 40);
-            label18.TabIndex = 71;
-            label18.Text = "Update";
             // 
             // PlantWorkshop
             // 
@@ -643,10 +671,6 @@
             AutoScroll = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1051, 583);
-            Controls.Add(label18);
-            Controls.Add(label17);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
@@ -672,12 +696,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -720,14 +743,15 @@
         private CheckedListBox checkedListBox4;
         private CheckedListBox checkedListBox2;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private Label label17;
-        private Label label18;
         private PictureBox pictureBox6;
         private Label label19;
         private Label label20;
         private PictureBox pictureBox7;
         private NumericUpDown numericUpDown1;
+        private Label label17;
+        private PictureBox pictureBox4;
+        private Label label22;
+        private Label label21;
+        private Label label18;
     }
 }

@@ -16,7 +16,7 @@ namespace My_Garden
 {
     public partial class PlantImage_worker : Form
     {
-        public static Guid plantid = PlantWorkshop.plantid;
+        public static Guid plantid = PlantWorkshop.plantId;
         PlantController controller;
         public static List<string> images;
         private string destinationFolder = Path.Combine(Application.StartupPath, "PlantImages");

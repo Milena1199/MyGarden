@@ -26,12 +26,67 @@ namespace MyGarden.Core.Controllers
             myGardenDb = new MyGardenDb ();
         }
         
-        public List<Plant> FindAllPlants()
+        public List<string> ShowAllPlantsNames()
         {
-            return myGardenDb.Plants.ToList ();
+            List<string> plants = new List<string>();
+            foreach (Plant plant in myGardenDb.Plants)
+            {
+                plants.Add (plant.Name);
+            }
+            return plants;
         }
 
-        public void AddPlant(AddPlantViewModel addPlantViewModel)
+        public Plant FindPlant(int index)
+        {
+            List<Plant> plants = myGardenDb.Plants.ToList();
+            return plants[index];
+        }
+
+        public List<string>CategoriesForPlantNames(int index)
+        {
+            List<string> categrories = new List<string>();
+            foreach (Plant_Category plant_category in myGardenDb.Plants_Categories)
+            {
+               Category category = myGardenDb.Categories.Find(plant_category.CategoryId);
+                categrories.Add(category.Name);
+            }
+            return categrories;
+        }
+
+        public List<string> StylesForPlantNames (int index)
+        {
+            List<string> styles = new List<string>();
+            foreach(PlantAndStyle plantAndStyle in myGardenDb.PlantsAndStyles)
+            {
+                GardenStyle style = myGardenDb.GardenStyles.Find(plantAndStyle.StyleId);
+                styles.Add(style.Name);
+            }
+            return styles;
+        }
+
+        public List<string> PestsForPlantNames(int index)
+        {
+            List<string> pests = new List<string>();
+            foreach (PestAndPlant pestAndPlant in myGardenDb.PestsAndPlants)
+            {
+                Pest pest = myGardenDb.Pests.Find(pestAndPlant.PestId);
+                pests.Add(pest.Name);
+            }
+            return pests;
+        }
+
+        public List<string> DiseasesForPlantNames(int index)
+        {
+            List<string> diseases = new List<string>();
+            foreach (PlantAndDisease plant_disease in myGardenDb.PlantsAndDiseases)
+            {
+               Disease disease= myGardenDb.Diseases.Find(plant_disease.DiseaseId);
+                diseases.Add(disease.Name);
+            }
+            return diseases;
+        }
+
+        public void AddPlant(AddPlantViewModel addPlantViewModel)//validation
         {
             Plant plant = new Plant()
             {
@@ -48,7 +103,89 @@ namespace MyGarden.Core.Controllers
                 MoreInfo = addPlantViewModel.MoreInfo,
                 Price = addPlantViewModel.Price
             };
+            myGardenDb.Plants.Add(plant);
+            myGardenDb.SaveChanges();
         }
+
+        public Guid FindPlantId(string name)
+        {
+            Plant plant = myGardenDb.Plants.FirstOrDefault(p => p.Name == name);
+            return plant.Id;
+        }
+
+
+
+        public Guid FindCategoryId(string categoryName)
+        {
+           Category category = myGardenDb.Categories.FirstOrDefault(c=>c.Name==categoryName);
+            return category.Id;
+        }
+        public void AddInPlantsAndCategories(AddInPlantsAndCategoriesViewModel addInPlantsAndCategoriesViewModel)
+        {
+            Plant_Category plantCategory = new Plant_Category()
+            {
+                PlantId = addInPlantsAndCategoriesViewModel.PlantId,
+                CategoryId = addInPlantsAndCategoriesViewModel.CategoryId
+            };
+
+            myGardenDb.Plants_Categories.Add(plantCategory);
+            myGardenDb.SaveChanges();
+        }
+
+
+        public Guid FindPestId(string pestName)
+        {
+            Pest pest = myGardenDb.Pests.FirstOrDefault(p => p.Name == pestName);
+            return pest.Id;
+        }
+        public void AddInPestsAndPlants(AddInPestsAndPlantsViewModel addInPestsAndPlantsViewModel)
+        {
+            PestAndPlant pestAndPlant = new PestAndPlant()
+            {
+                PestId = addInPestsAndPlantsViewModel.PestId,
+                PlantId = addInPestsAndPlantsViewModel.PlantId
+            };
+
+            myGardenDb.PestsAndPlants.Add(pestAndPlant);
+            myGardenDb.SaveChanges();
+        }
+
+
+        public Guid FindDiseaseId(string diseaseName)
+        {
+            Disease disease = myGardenDb.Diseases.FirstOrDefault(d=>d.Name == diseaseName);
+            return disease.Id;
+        }
+        public void AddInPlantsAndDiseases(AddInPlantsAndDiseasesViewModel addInPlantsAndDiseasesViewModel)
+        {
+            PlantAndDisease plantAndDisease = new PlantAndDisease()
+            {
+                PlantId = addInPlantsAndDiseasesViewModel.PlantId,
+                DiseaseId = addInPlantsAndDiseasesViewModel.DiseaseId
+            };
+
+            myGardenDb.PlantsAndDiseases.Add(plantAndDisease);
+            myGardenDb.SaveChanges();
+        }
+
+
+        public Guid FindStyleId(string styleName)
+        {
+            GardenStyle style = myGardenDb.GardenStyles.FirstOrDefault(s => s.Name == styleName);
+            return style.Id;
+        }
+
+        public void AddInPlantsAndStyles(AddInPlantsAndStylesViewModel addInPlantsAndStylesViewModel)
+        {
+            PlantAndStyle plantAndStyle = new PlantAndStyle()
+            {
+                PlantId = addInPlantsAndStylesViewModel.PlantId,
+                StyleId = addInPlantsAndStylesViewModel.StyleId
+            };
+            myGardenDb.PlantsAndStyles.Add(plantAndStyle);
+            myGardenDb.SaveChanges();
+        }
+
         public List<string>ShowImagesForPlant(Guid plantId)
         {
             List<string> images = new List<string>();
@@ -64,12 +201,7 @@ namespace MyGarden.Core.Controllers
             }
             return images;
         }
-        public Guid FindPlant(int index)
-        {
-            List<Plant> plats = FindAllPlants();
-            Plant plant = plats[index];
-            return plant.Id;
-        }
+
         public void DeleteImage(Guid plantid, int index)
         {
             List<PlantImage> images = myGardenDb.PlantImages.Where(i => i.PlantId == plantid).ToList();
