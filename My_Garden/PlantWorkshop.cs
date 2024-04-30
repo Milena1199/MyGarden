@@ -296,7 +296,30 @@ namespace My_Garden
         //update1
         private void label20_Click(object sender, EventArgs e)
         {
-            
+            textBox1.Enabled = true;
+            checkedListBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            pictureBox3.Enabled = true;
+            textBox4.Enabled = true;
+            comboBox1.Enabled = true;
+            numericUpDown1.Enabled = true;
+            comboBox2.Enabled = true;
+            textBox5.Enabled = true;
+            textBox6.Enabled = true;
+            checkedListBox2.Enabled = true;
+            textBox7.Enabled = true;
+            checkedListBox4.Enabled = true;
+            textBox8.Enabled = true;
+            label20.Visible = false;
+            label18.Visible = true;
+            pictureBox6.Visible = false;
+            label19.Visible = false;
+            label21.Visible = false;
+            pictureBox4.Visible = false;
+            label17.Visible = false;
+            updatingImagesAllowed = true;
+
         }
         //clear
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -311,7 +334,15 @@ namespace My_Garden
         //update2
         private void label18_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1 || textBox5.Text == "" || textBox6.Text == "")
+            {
+                MessageBox.Show("Please fill up all the required information first", "Plant workshop");
+            }
+            else
+            {
+                if (images.Count == 0) images.Add(Path.Combine(destinationFolder, "noImageFound.png"));
 
+            }
         }
         //delete 1
         private void label17_Click_1(object sender, EventArgs e)
@@ -333,7 +364,7 @@ namespace My_Garden
         {
             if (textBox1.Text == "" || textBox2.Text == ""||textBox3.Text==""||textBox4.Text==""||comboBox1.SelectedIndex==-1||comboBox2.SelectedIndex==-1||textBox5.Text==""||textBox6.Text=="")
             {
-                MessageBox.Show("Please fill up all the required information first", "Plant workshop");//required info labels
+                MessageBox.Show("Please fill up all the required information first", "Plant workshop");
             }
             else
             {

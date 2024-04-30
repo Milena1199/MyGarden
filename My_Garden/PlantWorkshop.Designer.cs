@@ -325,7 +325,7 @@
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label21.Image = (Image)resources.GetObject("label21.Image");
-            label21.Location = new Point(470, 865);
+            label21.Location = new Point(472, 933);
             label21.Name = "label21";
             label21.Size = new Size(89, 40);
             label21.TabIndex = 82;

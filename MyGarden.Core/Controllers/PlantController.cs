@@ -341,6 +341,64 @@ namespace MyGarden.Core.Controllers
 
         //Update
 
+        public void UpdatePlant(UpdatePlantViewModel updatePlantViewModel)
+        {
+            Plant plant = myGardenDb.Plants.Find(updatePlantViewModel.PlantId);
+            plant.Name = updatePlantViewModel.Name;
+            plant.HowToPlant = updatePlantViewModel.HowToPlant;
+            plant.SeasonsOfInterest = updatePlantViewModel.SeasonOfInteret;
+            plant.Characteristics = updatePlantViewModel.Characteristics;
+            plant.ClimateZone = updatePlantViewModel.ClimateZone;
+            plant.HardinessZone = updatePlantViewModel.HardinessZone;
+            plant.SoilType = updatePlantViewModel.SoilType;
+            plant.Maintenance = updatePlantViewModel.Мaintenance;
+            plant.LenghtOfLife = updatePlantViewModel.LenghtOfLife;
+            plant.Price = updatePlantViewModel.Price;
+            plant.MoreInfo = updatePlantViewModel.MoreInfo;
+
+            List<PlantImage> images = myGardenDb.PlantImages.Where(i => i.PlantId == updatePlantViewModel.PlantId).ToList();
+            List<string> newImages = updatePlantViewModel.Images.ToList();
+            if (images.Count > newImages.Count)
+            {
+                foreach(PlantImage image in images)
+                {
+                    bool isThere = false;
+                    foreach (string name in newImages)
+                    {
+                        if (image.Url == name) isThere = true;
+                    }
+                    if(isThere==false)
+                    {
+                        image.IsVisible = false;
+                    }
+                }
+            }
+            else if (images.Count < newImages.Count)
+            {
+                foreach (string name in newImages)
+                {
+                    bool isThere = false;
+                    foreach (PlantImage image in images)
+                    {
+                        if (image.Url == name) isThere = true;
+                    }
+                    if(isThere ==false)
+                    {
+                        AddImageForPlantViewModel addImageForPlantViewModel = new AddImageForPlantViewModel()
+                        {
+                            PlantId = updatePlantViewModel.PlantId,
+                            Url = name
+                        };
+                        AddImage(addImageForPlantViewModel);
+                    }
+                }
+
+            }
+            List<string> categories = CategoriesForPlantNames(updatePlantViewModel.Index);
+            List<string> newCategories = updatePlantViewModel.Categories;
+            
+        }
+
         public void UpdateCategory(UpdateCatrgoryViewModel updateCatrgoryViewModel)
         {
             List<Category> categories = myGardenDb.Categories.ToList();
