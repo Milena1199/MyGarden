@@ -58,9 +58,9 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(122, 505);
+            button3.Location = new Point(179, 505);
             button3.Name = "button3";
-            button3.Size = new Size(160, 61);
+            button3.Size = new Size(147, 61);
             button3.TabIndex = 53;
             button3.Tag = "";
             button3.Text = "Log out";
@@ -85,9 +85,9 @@
             button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(377, 492);
+            button2.Location = new Point(411, 492);
             button2.Name = "button2";
-            button2.Size = new Size(202, 74);
+            button2.Size = new Size(178, 74);
             button2.TabIndex = 51;
             button2.Tag = "edit";
             button2.Text = "Save\r\nchanges";
@@ -139,9 +139,9 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(377, 505);
+            button1.Location = new Point(411, 505);
             button1.Name = "button1";
-            button1.Size = new Size(178, 61);
+            button1.Size = new Size(153, 61);
             button1.TabIndex = 47;
             button1.Tag = "hide";
             button1.Text = "Edit";
@@ -274,7 +274,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Picture4;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(790, 615);
             Controls.Add(button3);

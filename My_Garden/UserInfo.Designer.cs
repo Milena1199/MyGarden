@@ -171,7 +171,7 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.FromArgb(230, 227, 218);
+            textBox1.BackColor = Color.White;
             textBox1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             textBox1.Location = new Point(397, 199);
             textBox1.Multiline = true;
@@ -188,9 +188,9 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(284, 505);
+            button1.Location = new Point(397, 498);
             button1.Name = "button1";
-            button1.Size = new Size(167, 61);
+            button1.Size = new Size(153, 68);
             button1.TabIndex = 30;
             button1.Tag = "hide";
             button1.Text = "Edit";
@@ -199,7 +199,7 @@
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.FromArgb(230, 227, 218);
+            textBox2.BackColor = Color.White;
             textBox2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             textBox2.Location = new Point(397, 267);
             textBox2.Multiline = true;
@@ -211,7 +211,7 @@
             // 
             // textBox3
             // 
-            textBox3.BackColor = Color.FromArgb(230, 227, 218);
+            textBox3.BackColor = Color.White;
             textBox3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             textBox3.Location = new Point(397, 330);
             textBox3.Multiline = true;
@@ -223,7 +223,7 @@
             // 
             // textBox4
             // 
-            textBox4.BackColor = Color.FromArgb(230, 227, 218);
+            textBox4.BackColor = Color.White;
             textBox4.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             textBox4.Location = new Point(397, 400);
             textBox4.Multiline = true;
@@ -240,13 +240,12 @@
             button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(482, 498);
+            button2.Location = new Point(397, 498);
             button2.Name = "button2";
-            button2.Size = new Size(203, 68);
+            button2.Size = new Size(187, 68);
             button2.TabIndex = 34;
             button2.Tag = "edit";
             button2.Text = "Save\r\nchanges";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Visible = false;
             button2.Click += button2_Click;
@@ -269,13 +268,12 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(80, 505);
+            button3.Location = new Point(200, 502);
             button3.Name = "button3";
-            button3.Size = new Size(172, 61);
+            button3.Size = new Size(165, 61);
             button3.TabIndex = 36;
             button3.Tag = "";
             button3.Text = "Log out";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 

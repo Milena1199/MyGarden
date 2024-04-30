@@ -47,7 +47,6 @@
             label12 = new Label();
             label13 = new Label();
             panel1 = new Panel();
-            label22 = new Label();
             label21 = new Label();
             label18 = new Label();
             label17 = new Label();
@@ -285,7 +284,6 @@
             // panel1
             // 
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.Controls.Add(label22);
             panel1.Controls.Add(label21);
             panel1.Controls.Add(label18);
             panel1.Controls.Add(label17);
@@ -321,27 +319,13 @@
             panel1.Size = new Size(1051, 994);
             panel1.TabIndex = 61;
             // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.BackColor = Color.Transparent;
-            label22.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Image = (Image)resources.GetObject("label22.Image");
-            label22.Location = new Point(882, 884);
-            label22.Name = "label22";
-            label22.Size = new Size(130, 40);
-            label22.TabIndex = 83;
-            label22.Text = "Delete";
-            label22.Visible = false;
-            label22.Click += label22_Click;
-            // 
             // label21
             // 
             label21.AutoSize = true;
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Lucida Fax", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label21.Image = (Image)resources.GetObject("label21.Image");
-            label21.Location = new Point(468, 840);
+            label21.Location = new Point(470, 865);
             label21.Name = "label21";
             label21.Size = new Size(89, 40);
             label21.TabIndex = 82;
@@ -654,14 +638,14 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Enabled = false;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(796, 83);
+            pictureBox3.Location = new Point(829, 72);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(94, 88);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 67;
             pictureBox3.TabStop = false;
-            pictureBox3.Visible = false;
             pictureBox3.Click += pictureBox3_Click;
             // 
             // PlantWorkshop
@@ -750,7 +734,6 @@
         private NumericUpDown numericUpDown1;
         private Label label17;
         private PictureBox pictureBox4;
-        private Label label22;
         private Label label21;
         private Label label18;
     }

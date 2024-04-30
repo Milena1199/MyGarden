@@ -24,6 +24,7 @@ namespace My_Garden
         public static Guid plantId;
         private int index;
         private string destinationFolder = Path.Combine(Application.StartupPath, "PlantImages");
+        public static bool updatingImagesAllowed;
 
         public PlantWorkshop()
         {
@@ -38,6 +39,7 @@ namespace My_Garden
 
         private void PlantWorkshop_Load(object sender, EventArgs e)
         {
+            updatingImagesAllowed = false;
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -78,13 +80,12 @@ namespace My_Garden
             comboBox2.SelectedIndex = -1;
             numericUpDown1.Value = numericUpDown1.Minimum;
 
-            pictureBox3.Visible = false;
+            pictureBox3.Enabled = false;
             pictureBox6.Visible = true;
             label19.Visible = true;
             label21.Visible = false;
             pictureBox4.Visible = false;
             label17.Visible = false;
-            label22.Visible = false;
             pictureBox7.Visible = false;
             label20.Visible = false;
             label18.Visible = false;
@@ -126,9 +127,11 @@ namespace My_Garden
         {
 
         }
-        //add1  
+        //add1 !!
         private void label17_Click(object sender, EventArgs e)
         {
+            pictureBox3.Enabled = true;
+            updatingImagesAllowed = true;
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -183,7 +186,6 @@ namespace My_Garden
             label21.Visible = true;
             pictureBox4.Visible = false;
             label17.Visible = false;
-            label22.Visible = false;
         }
         //clear
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -217,8 +219,8 @@ namespace My_Garden
                 };
                 controller.AddImage(addImageForPlantViewModel);
             }
+            updatingImagesAllowed = false;
         }
-        //add2
         private void picturebox6_Click(object sender, EventArgs e)
         {
 
@@ -239,6 +241,8 @@ namespace My_Garden
                 plantId = plant.Id;
                 textBox1.Text = listBox1.SelectedItem.ToString();
                 List<string> checkedCategories = controller.CategoriesForPlantNames(index);
+                images = controller.ShowImagesForPlant(plantId);
+                if (images.Count == 0) images.Add("noImageFound");
                 for(int i = 0; i<checkedListBox1.Items.Count; i++)
                 {
                     checkedListBox1.SetItemChecked(i, checkedCategories.Contains(checkedListBox1.Items[i]));
@@ -269,6 +273,7 @@ namespace My_Garden
                 }
                 textBox8.Text = plant.MoreInfo;
 
+                pictureBox3.Enabled = true;
                 pictureBox7.Visible = true;
                 label20.Visible = true;
                 label18.Visible = false;
@@ -277,13 +282,12 @@ namespace My_Garden
                 label21.Visible = false;
                 pictureBox4.Visible = true;
                 label17.Visible = true;
-                label22.Visible = false;
+                updatingImagesAllowed = false;
             }
         }
         //image add
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (plantId != Guid.Empty) images = controller.ShowImagesForPlant(plantId);
             if (images.Count == 0) images.Add("noImageFound");
 
             PlantImage_worker plantImage_Worker = new PlantImage_worker();
@@ -292,7 +296,7 @@ namespace My_Garden
         //update1
         private void label20_Click(object sender, EventArgs e)
         {
-
+            
         }
         //clear
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -312,14 +316,19 @@ namespace My_Garden
         //delete 1
         private void label17_Click_1(object sender, EventArgs e)
         {
-
+            if(MessageBox.Show("Are you sure you want to delete this plant?","Plant workshop",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                plantId = controller.FindPlantId(textBox1.Text);
+                controller.DeletePlant(plantId);
+                PlantWorkshop_Load(sender, e);
+            }
         }
         //delete 2
         private void label22_Click(object sender, EventArgs e)
         {
 
         }
-        //add 2 
+        //add 2 !!
         private void label21_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == ""||textBox3.Text==""||textBox4.Text==""||comboBox1.SelectedIndex==-1||comboBox2.SelectedIndex==-1||textBox5.Text==""||textBox6.Text=="")
@@ -344,7 +353,6 @@ namespace My_Garden
                     MoreInfo = textBox8.Text
                 };
                 controller.AddPlant(addPlantViewModel);
-
                 plantId = controller.FindPlantId(textBox1.Text);
                 foreach (string image in images)
                 {
@@ -357,7 +365,7 @@ namespace My_Garden
                 }
                 for(int i =0; i<checkedListBox1.Items.Count; i++)
                 {
-                    if (checkedListBox1.GetItemChecked(i))
+                    if (checkedListBox1.GetItemChecked(i)==true)
                     {
                         AddInPlantsAndCategoriesViewModel addInPlantsAndCategoriesViewModel = new AddInPlantsAndCategoriesViewModel()
                         {
@@ -369,19 +377,19 @@ namespace My_Garden
                 }
                 for (int i = 0; i<checkedListBox2.Items.Count; i++)
                 {
-                    if (checkedListBox2.GetItemChecked(i))
+                    if (checkedListBox2.GetItemChecked(i)==true)
                     {
                         AddInPlantsAndDiseasesViewModel addInPlantsAndDiseasese = new AddInPlantsAndDiseasesViewModel()
                         {
                             PlantId = plantId,
-                            DiseaseId = controller.FindDiseaseId(checkedListBox1.Items[i].ToString())
+                            DiseaseId = controller.FindDiseaseId(checkedListBox2.Items[i].ToString())
                         };
                         controller.AddInPlantsAndDiseases(addInPlantsAndDiseasese);
                     }
                 }
                 for (int i = 0; i < checkedListBox3.Items.Count; i++)
                 {
-                    if (checkedListBox3.GetItemChecked(i))
+                    if (checkedListBox3.GetItemChecked(i) == true)
                     {
                         AddInPestsAndPlantsViewModel addInPestsAndPlantsViewModel = new AddInPestsAndPlantsViewModel()
                         {
@@ -393,7 +401,7 @@ namespace My_Garden
                 }
                 for (int i = 0; i<checkedListBox4.Items.Count;i++)
                 {
-                    if (checkedListBox4.GetItemChecked(i))
+                    if (checkedListBox4.GetItemChecked(i) == true)
                     {
                         AddInPlantsAndStylesViewModel addInPlantsAndStylesViewModel = new AddInPlantsAndStylesViewModel()
                         {

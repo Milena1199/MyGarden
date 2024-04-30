@@ -21,7 +21,6 @@ namespace My_Garden
         public static List<string> images;
         private string destinationFolder = Path.Combine(Application.StartupPath, "PlantImages");
         int num = -1;
-        int count = 0;
 
         public PlantImage_worker()
         {
@@ -31,11 +30,15 @@ namespace My_Garden
 
         private void PlantImage_worker_Load(object sender, EventArgs e)
         {
-            if(count==0)
+            images = PlantWorkshop.images;
+
+            if (PlantWorkshop.updatingImagesAllowed==false)
             {
-                images = PlantWorkshop.images;
+                pictureBox4.Visible = false;
+                pictureBox5.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
             }
-            count = 0;
             num = 0;
             string imageName = images[num];
             string imagePath = FindImageInFolder(imageName);
@@ -134,7 +137,6 @@ namespace My_Garden
                     File.Copy(filePath, destinationPath);
                     images.Add(fileName);
                     if (images.Contains("noImageFound")) images.Remove("noImageFound");
-                    count++;
                     PlantImage_worker_Load(sender, e);
                 }
                 else
@@ -143,7 +145,6 @@ namespace My_Garden
                     {
                         images.Add(fileName);
                         if (images.Contains("noImageFound")) images.Remove("noImageFound");
-                        count++;
                         PlantImage_worker_Load(sender, e);
                     }
                     else

@@ -40,6 +40,7 @@
             // button1
             // 
             button1.BackColor = Color.SeaGreen;
+            button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Fax", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(446, 366);
@@ -53,6 +54,7 @@
             // button2
             // 
             button2.BackColor = Color.SeaGreen;
+            button2.Cursor = Cursors.Hand;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Lucida Fax", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Location = new Point(446, 477);

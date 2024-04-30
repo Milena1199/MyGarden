@@ -64,6 +64,7 @@
             // button1
             // 
             button1.BackColor = Color.Black;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Lucida Fax", 18F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(740, 408);
             button1.Name = "button1";

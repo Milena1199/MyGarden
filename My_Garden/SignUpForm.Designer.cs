@@ -63,6 +63,7 @@
             // button1
             // 
             button1.BackColor = Color.Black;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Lucida Fax", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
             button1.Location = new Point(816, 471);
@@ -232,7 +233,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            BackgroundImage = My_Garden.Properties.Resources.redLily;
+            BackgroundImage = Properties.Resources.redLily;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1066, 676);
             Controls.Add(pictureBox2);
